@@ -1,7 +1,13 @@
 var store = [{
-        "title": "Test",
-        "excerpt":" title:  “test용 문서 작성” excerpt: “목록에서 보여? “   categories:     Blog tags:   [Blog, Daily]   toc: true toc_sticky: true   date: 2021-12-30  ","categories": [],
-        "tags": [],
-        "url": "/blog/test/",
+        "title": "안녕하세요 개굴이에요.",
+        "excerpt":"안녕하세요 안녕하세요 개굴심이에요  ","categories": ["life"],
+        "tags": ["life"],
+        "url": "/life/introduce/",
+        "teaser": null
+      },{
+        "title": "test용 문서 작성",
+        "excerpt":"test할 내용들  ","categories": ["dev"],
+        "tags": ["dev","blog"],
+        "url": "/dev/test/",
         "teaser": null
       }]

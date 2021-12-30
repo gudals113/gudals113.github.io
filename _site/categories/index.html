@@ -9,32 +9,28 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Test - 개구리의 개발 블로그</title>
-<meta name="description" content="title:  “test용 문서 작성” excerpt: “목록에서 보여? “">
+<!-- begin _includes/seo.html --><title>Posts by Category - 개구리의 개발 블로그</title>
+<meta name="description" content="CS 및 서버 개발 공부">
 
 
   <meta name="author" content="개구리">
   
-  <meta property="article:author" content="개구리">
-  
 
 
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="Test">
-<meta property="og:url" content="http://localhost:4000/blog/test/">
+<meta property="og:title" content="Posts by Category">
+<meta property="og:url" content="http://localhost:4000/categories/">
 
 
-  <meta property="og:description" content="title:  “test용 문서 작성” excerpt: “목록에서 보여? “">
-
-
-
+  <meta property="og:description" content="CS 및 서버 개발 공부">
 
 
 
 
-  <meta property="article:published_time" content="2021-12-30T00:00:00+09:00">
+
+
 
 
 
@@ -45,7 +41,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/blog/test/">
+<link rel="canonical" href="http://localhost:4000/categories/">
 
 
 
@@ -56,7 +52,7 @@
     
       "@type": "Person",
       "name": "개구리",
-      "url": "http://localhost:4000/blog/"
+      "url": "http://localhost:4000/"
     
   }
 </script>
@@ -71,7 +67,7 @@
 
 
 
-  <link href="/blog/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 개발 블로그 Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 개발 블로그 Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -82,7 +78,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
@@ -94,9 +90,17 @@
 
 <!-- end custom head snippets -->
 
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon_package_v0.16/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_package_v0.16/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_package_v0.16/favicon-16x16.png">
+<link rel="manifest" href="/favicon_package_v0.16/site.webmanifest">
+<link rel="mask-icon" href="/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
   </head>
 
-  <body class="layout--single">
+  <body class="layout--categories">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -116,12 +120,16 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-        <a class="site-title" href="/blog/">
+        <a class="site-title" href="/">
           개구리의 개발 블로그
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/">Quick-Start Guide</a>
+              <a href="https://mmistakes.github.io/minimal-mistakes/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -152,7 +160,7 @@
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/blog/" itemprop="url">개구리</a>
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">개구리</a>
     </h3>
     
       <div class="author__bio p-note" itemprop="description">
@@ -257,20 +265,60 @@
 
 
 
-  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Test">
-    <meta itemprop="description" content="title:  “test용 문서 작성”excerpt: “목록에서 보여? “">
-    <meta itemprop="datePublished" content="2021-12-30T00:00:00+09:00">
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Posts by Category</h1>
+    
     
 
-    <div class="page__inner-wrap">
+
+
+
+
+<ul class="taxonomy__index">
+  
+    
       
-        <header>
-          <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/blog/test/" class="u-url" itemprop="url">Test
-</a>
-          </h1>
+        <li>
+          <a href="#life">
+            <strong>life</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+      
+        <li>
+          <a href="#dev">
+            <strong>dev</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+  
+</ul>
+
+
+
+  
+    
+      <section id="life" class="taxonomy__section">
+        <h2 class="archive__subtitle">life</h2>
+        <div class="entries-list">
           
+            
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/life/introduce/" rel="permalink">안녕하세요 개굴이에요.
+</a>
+      
+    </h2>
+    
 
   <p class="page__meta">
     
@@ -291,71 +339,70 @@
   </p>
 
 
-        </header>
-      
-
-      <section class="page__content e-content" itemprop="text">
-        
-        <hr />
-<p>title:  “test용 문서 작성”
-excerpt: “목록에서 보여? “</p>
-
-<p>categories:</p>
-<ul>
-  <li>Blog
-tags:</li>
-  <li>[Blog, Daily]</li>
-</ul>
-
-<p>toc: true
-toc_sticky: true</p>
-
-<p>date: 2021-12-30</p>
-
-        
-      </section>
-
-      <footer class="page__meta">
-        
-        
-
-
-        
-
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-12-30T00:00:00+09:00">December 30, 2021</time></p>
-
-      </footer>
-
-      <section class="page__share">
-  
-    <h4 class="page__share-title">공유하기</h4>
-  
-
-  <a href="https://twitter.com/intent/tweet?text=Test%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftest%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftest%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Ftest%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
-</section>
-
-
-      
-    </div>
-
-    
+    <p class="archive__item-excerpt" itemprop="description">반갑습니다. 잘 부탁드려요
+</p>
   </article>
+</div>
 
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
   
-  
-    <div class="page__related">
-      <h2 class="page__related-title">참고</h2>
-      <div class="grid__wrapper">
-        
+    
+      <section id="dev" class="taxonomy__section">
+        <h2 class="archive__subtitle">dev</h2>
+        <div class="entries-list">
           
             
-      </div>
-    </div>
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/dev/test/" rel="permalink">test용 문서 작성
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목록에서 보여?
+</p>
+  </article>
+</div>
+
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
   
+
+
+  </div>
 </div>
     </div>
 
@@ -389,7 +436,7 @@ toc_sticky: true</p>
     
 
     
-      <li><a href="/blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
     
   </ul>
 </div>
@@ -400,7 +447,7 @@ toc_sticky: true</p>
     </div>
 
     
-  <script src="/blog/assets/js/main.min.js"></script>
+  <script src="/assets/js/main.min.js"></script>
 
 
 
