@@ -1,6 +1,6 @@
 var store = [{
         "title": "안녕하세요 개굴이에요.",
-        "excerpt":"안녕하세요 안녕하세요 개굴심이에요  ","categories": ["life"],
+        "excerpt":"안녕하세요 안녕하세요  안녕하세요  ","categories": ["life"],
         "tags": ["life"],
         "url": "/life/introduce/",
         "teaser": null
