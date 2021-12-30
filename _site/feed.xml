@@ -1,1 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2021-12-30T19:23:44+09:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">개구리의 개발 블로그</title><subtitle>CS 및 서버 개발 공부</subtitle><author><name>개구리</name><email>gudals113@gmail.com</email></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2021-12-30T19:37:29+09:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">개구리의 개발 블로그</title><subtitle>CS 및 서버 개발 공부</subtitle><author><name>개구리</name><email>gudals113@gmail.com</email></author><entry><title type="html">Test</title><link href="http://localhost:4000/blog/test/" rel="alternate" type="text/html" title="Test" /><published>2021-12-30T00:00:00+09:00</published><updated>2021-12-30T00:00:00+09:00</updated><id>http://localhost:4000/blog/test</id><content type="html" xml:base="http://localhost:4000/blog/test/">&lt;hr /&gt;
+&lt;p&gt;title:  “test용 문서 작성”
+excerpt: “목록에서 보여? “&lt;/p&gt;
+
+&lt;p&gt;categories:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Blog
+tags:&lt;/li&gt;
+  &lt;li&gt;[Blog, Daily]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;toc: true
+toc_sticky: true&lt;/p&gt;
+
+&lt;p&gt;date: 2021-12-30&lt;/p&gt;</content><author><name>개구리</name><email>gudals113@gmail.com</email></author><summary type="html">title: “test용 문서 작성” excerpt: “목록에서 보여? “</summary></entry></feed>
