@@ -21,8 +21,8 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "개구리"
 description              : "CS 및 서버 개발 공부"
-url                      : "https://gudals113.github.io"
-baseurl                  : 
+url                      : "https://gudals113.github.io/"
+baseurl                  : ""
 repository               : "gudals113/gudals113.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
