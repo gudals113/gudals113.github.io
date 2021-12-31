@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "test용 문서 작성",
-        "excerpt":"test할 내용들  ","categories": ["dev"],
+        "excerpt":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a dictum metus. In congue placerat iaculis. Donec ex orci, vestibulum ut vestibulum id, pulvinar nec ipsum. Pellentesque efficitur turpis sed vestibulum lacinia. Praesent rutrum mauris a tortor sodales, a aliquet purus pellentesque. Mauris tincidunt vel dui eget cursus. In hac...","categories": ["dev"],
         "tags": ["dev","blog"],
         "url": "/dev/test/",
         "teaser": null
