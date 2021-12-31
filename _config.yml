@@ -286,7 +286,7 @@ defaults:
       author_profile: true
       read_time: false
       show_date: true
-      comments: # true
-      share: true
+      comments: true
+      share: false
       related: true
 
