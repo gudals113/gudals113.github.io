@@ -558,6 +558,31 @@ BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
 
 
 
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'gudals113/gitpages-comments');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', 'comment')
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
 
 
 
