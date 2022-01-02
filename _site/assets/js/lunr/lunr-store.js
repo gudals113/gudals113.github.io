@@ -1,6 +1,6 @@
 var store = [{
         "title": "안녕하세요 개구리입니다.",
-        "excerpt":"안녕하세요. 잘 부탁드립니다. 열심히 공부해볼게요. 개굴.  ","categories": ["life"],
+        "excerpt":"안녕하세요. 노션에 정리해가며 공부를 했었는데 올해부터는 블로그에 정리를 하려고 합니다. 글이 많아지면 방문하시는 분들도 생기겠죠. 잘 부탁드립니다. 궁금하신 점이나 제 글에 오류가 있다면 알려주세요.  ","categories": ["life"],
         "tags": ["life"],
         "url": "/life/introduce/",
         "teaser": null
