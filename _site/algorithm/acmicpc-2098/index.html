@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[백준] 2178번 미로탐색 - 개구리의 개발 블로그</title>
-<meta name="description" content="prev에 경로를 저장하고 BFS를 돌렸다. BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다. 돌아가는 과정이 비효율적이다.">
+<!-- begin _includes/seo.html --><title>[백준]2098번 외판원 순회 - 개구리의 개발 블로그</title>
+<meta name="description" content="알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.">
 
 
   <meta name="author" content="개구리">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="[백준] 2178번 미로탐색">
-<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-2178/">
+<meta property="og:title" content="[백준]2098번 외판원 순회">
+<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-2098/">
 
 
-  <meta property="og:description" content="prev에 경로를 저장하고 BFS를 돌렸다. BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다. 돌아가는 과정이 비효율적이다.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-12-31T00:00:00+09:00">
+  <meta property="og:description" content="알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-01-02T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-2178/">
+
+<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-2098/">
 
 
 
@@ -275,16 +275,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[백준] 2178번 미로탐색">
-    <meta itemprop="description" content="prev에 경로를 저장하고 BFS를 돌렸다.BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.돌아가는 과정이 비효율적이다.">
-    <meta itemprop="datePublished" content="2021-12-31T00:00:00+09:00">
+    <meta itemprop="headline" content="[백준]2098번 외판원 순회">
+    <meta itemprop="description" content="  알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.">
+    <meta itemprop="datePublished" content="2022-01-02T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/algorithm/acmicpc-2178/" class="u-url" itemprop="url">[백준] 2178번 미로탐색
+            <a href="http://localhost:4000/algorithm/acmicpc-2098/" class="u-url" itemprop="url">[백준]2098번 외판원 순회
 </a>
           </h1>
           
@@ -295,7 +295,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2021-12-31T00:00:00+09:00">December 31, 2021</time>
+        <time datetime="2022-01-02T00:00:00+09:00">January 2, 2022</time>
       </span>
     
 
@@ -310,55 +310,69 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>prev에 경로를 저장하고 BFS를 돌렸다.
-BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
-돌아가는 과정이 비효율적이다.</p>
+        <blockquote>
+  <p>알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.</p>
+</blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">limit_number</span> <span class="o">=</span> <span class="mi">150000</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="n">limit_number</span><span class="p">)</span>
+<span class="n">N</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 
-<span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">miro</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="c1">#이동 가능한 도시 경로 작성
+</span><span class="n">path</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">line</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-        <span class="n">miro</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-
-<span class="n">visited</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="n">visited</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">q</span><span class="o">=</span><span class="n">deque</span><span class="p">([])</span>
-<span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="n">dx</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">dy</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">line</span><span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="nb">map</span> <span class="p">(</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
 
 
-<span class="n">prev</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">dp</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">N</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span> <span class="c1">#dp[N][1&lt;&lt;N]
+</span>
+<span class="n">VISITED_COMPLETE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> 
+<span class="n">INF</span><span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="p">(</span><span class="n">q</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">y</span><span class="o">==</span><span class="n">M</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="k">break</span>
+
+<span class="k">def</span> <span class="nf">visiting</span><span class="p">(</span><span class="n">last</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
     
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-        <span class="n">nx</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-        <span class="n">ny</span><span class="o">=</span><span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-        <span class="k">if</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">nx</span><span class="o">&lt;</span><span class="n">N</span> <span class="ow">and</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">ny</span><span class="o">&lt;</span><span class="n">M</span> <span class="ow">and</span> <span class="n">visited</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">miro</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> 
-            <span class="n">prev</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-            <span class="n">visited</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-            <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">visited</span><span class="o">==</span><span class="n">VISITED_COMPLETE</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">path</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">INF</span>
 
-<span class="n">a</span><span class="o">=</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span>
-<span class="n">b</span><span class="o">=</span><span class="n">M</span><span class="o">-</span><span class="mi">1</span>    
-<span class="n">sol</span><span class="o">=</span><span class="mi">1</span>
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">sol</span><span class="o">+=</span><span class="mi">1</span>
-    <span class="k">if</span> <span class="n">prev</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">]</span><span class="o">==</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">):</span>
-        <span class="k">break</span>
-    <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">prev</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span>
+
+    <span class="n">tmp</span><span class="o">=</span><span class="n">INF</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">visited</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">path</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span> <span class="c1">#방문하지 않은 마을 &amp; path 가 존재
+</span>            <span class="n">tmp</span><span class="o">=</span> <span class="nb">min</span> <span class="p">(</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">visiting</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">visited</span> <span class="o">|</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span> <span class="p">)</span> <span class="o">+</span> <span class="n">path</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+
+    <span class="n">dp</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span>
+    <span class="k">return</span> <span class="n">tmp</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">visiting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span> <span class="p">)</span> <span class="c1">#방문한 곳이 0번 노드뿐이고, 가장 최근에 0번 노드를 방문한 경우에서 재귀함수 시작
+</span><span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>visited 배열에 숫자를 누적하며 계산하는 방법을 사용해보자.</p>
+<h3 id="재귀함수-top-down-방식-사용">재귀함수 top down 방식 사용</h3>
+<p>재귀함수 시작지점
+visiting(0,1) = 방문한 곳이 0번 노드 뿐이고 가장 최근에 0번 노드를 방문한 경우, 남은 노드를 모두 방문하고 0번째 노드로 돌아오는 경우 최소 비용</p>
+
+<h5 id="1-dp-설계">1. DP 설계</h5>
+
+<p>비트마스크를 이용해 x번째 도시를 방문했다면 x번째 이진수를 1로 표시한다.
+N개 도시의 조합을 표현하기 위해서는 N자리 이진수가 필요하고 2^N개의 DP를 통해 십진수로 표현가능.
+a번째 도시를 방문한 상태일 때 방문한 도시들(b)을 표현하기 위해 2차원 배열을 통해 DP 사용한다.
+a번쨰 도시를 방문한 상태이고 방문한 도시들b를 제외하고 남은 도시들을 모두 돌고 다시 0번으로 돌아갔을 때 최솟값을 DP에 저장</p>
+<h4 id="2-재귀함수-설계">2. 재귀함수 설계</h4>
+<h5 id="1번째-if">1번째 if</h5>
+<p>만약 모두 방문했다면, 다시 처음 도시(0)으로 방문하는 비용 혹은 존재하지 않는다면 inf 반환</p>
+<h5 id="2번째-if">2번째 if</h5>
+<p>만약 해당 경우가 이미 DP에 저장되어 있다면 해당값 반환</p>
+<h5 id="3번째-if">3번째 if</h5>
+<p>방문하지 않은 마을과 해당 마을로 향하는 길이 존재한다면  임의의 마을로 가는 경로 중 최소 값 반환→ 이를 계산하기 위해서는 다음 단계 계산 필요</p>
+
+<p>visiting(0,1) ←min ( visiting( 1, 11), visiting(2, 101), visiting(3, 1001), visiting(4,10001) )
+…← 재귀 마지막에 도착 시 ( visiting ( x, 11111) ) x에서 0으로 가는 비용 반환</p>
 
         
       </section>
@@ -377,9 +391,9 @@ BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
     
       <a href="/tags/#algorithm" class="page__taxonomy-item p-category" rel="tag">algorithm</a><span class="sep">, </span>
     
-      <a href="/tags/#bfs" class="page__taxonomy-item p-category" rel="tag">bfs</a><span class="sep">, </span>
+      <a href="/tags/#bitmask" class="page__taxonomy-item p-category" rel="tag">bitmask</a><span class="sep">, </span>
     
-      <a href="/tags/#graph" class="page__taxonomy-item p-category" rel="tag">graph</a>
+      <a href="/tags/#dp" class="page__taxonomy-item p-category" rel="tag">dp</a>
     
     </span>
   </p>
@@ -404,7 +418,7 @@ BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-12-31T00:00:00+09:00">December 31, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-02T00:00:00+09:00">January 2, 2022</time></p>
 
       </footer>
 
@@ -413,12 +427,11 @@ BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
       
   <nav class="pagination">
     
-      <a href="/life/introduce/" class="pagination--pager" title="안녕하세요 개구리입니다.
+      <a href="/algorithm/acmicpc-2178/" class="pagination--pager" title="[백준] 2178번 미로탐색
 ">이전</a>
     
     
-      <a href="/algorithm/acmicpc-2098/" class="pagination--pager" title="[백준]2098번 외판원 순회
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -442,7 +455,7 @@ BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-2098/" rel="permalink">[백준]2098번 외판원 순회
+        <a href="/algorithm/acmicpc-2178/" rel="permalink">[백준] 2178번 미로탐색
 </a>
       
     </h2>
@@ -454,7 +467,7 @@ BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-02T00:00:00+09:00">January 2, 2022</time>
+        <time datetime="2021-12-31T00:00:00+09:00">December 31, 2021</time>
       </span>
     
 
@@ -464,9 +477,9 @@ BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">
-  알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.
-
+    <p class="archive__item-excerpt" itemprop="description">prev에 경로를 저장하고 BFS를 돌렸다.
+BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
+돌아가는 과정이 비효율적이다.
 
 </p>
   </article>
