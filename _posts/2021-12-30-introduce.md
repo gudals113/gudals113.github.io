@@ -4,7 +4,7 @@ excerpt: 안녕하세요.
 categories:
 - life
 tags:
-- - life
+- life
 toc: true
 toc_sticky: true
 date: '2021-12-30'

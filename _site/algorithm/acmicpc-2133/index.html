@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[백준]2098번 외판원 순회 - 개구리의 개발 블로그</title>
-<meta name="description" content="알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.">
+<!-- begin _includes/seo.html --><title>[백준]2133번 타일 채우기 - 개구리의 개발 블로그</title>
+<meta name="description" content="매 열마다 3개의 타일이 있다.채워진 타일을 1, 채워지지 않은 타일을 0으로 표시한다.">
 
 
   <meta name="author" content="개구리">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="[백준]2098번 외판원 순회">
-<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-2098/">
+<meta property="og:title" content="[백준]2133번 타일 채우기">
+<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-2133/">
 
 
-  <meta property="og:description" content="알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-01-02T00:00:00+09:00">
+  <meta property="og:description" content="매 열마다 3개의 타일이 있다.채워진 타일을 1, 채워지지 않은 타일을 0으로 표시한다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-01-04T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-2098/">
+
+<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-2133/">
 
 
 
@@ -275,16 +275,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[백준]2098번 외판원 순회">
-    <meta itemprop="description" content="  알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.">
-    <meta itemprop="datePublished" content="2022-01-02T00:00:00+09:00">
+    <meta itemprop="headline" content="[백준]2133번 타일 채우기">
+    <meta itemprop="description" content="매 열마다 3개의 타일이 있다.채워진 타일을 1, 채워지지 않은 타일을 0으로 표시한다.">
+    <meta itemprop="datePublished" content="2022-01-04T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/algorithm/acmicpc-2098/" class="u-url" itemprop="url">[백준]2098번 외판원 순회
+            <a href="http://localhost:4000/algorithm/acmicpc-2133/" class="u-url" itemprop="url">[백준]2133번 타일 채우기
 </a>
           </h1>
           
@@ -295,7 +295,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-02T00:00:00+09:00">January 2, 2022</time>
+        <time datetime="2022-01-04T00:00:00+09:00">January 4, 2022</time>
       </span>
     
 
@@ -310,69 +310,64 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <blockquote>
-  <p>알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.</p>
+        <p>매 열마다 3개의 타일이 있다.채워진 타일을 1, 채워지지 않은 타일을 0으로 표시한다.</p>
+
+<p>ex)맨 위 타일 하나만 채워진 경우 100.</p>
+
+<blockquote>
+  <p>비트마스크는 알고리즘의 한 종류가 아닌 일종의 기법이라는 것을 해당 문제에서 알 수 있다. 
+점화식을 잘 표현하면 굳이 비트표현이 아닌 정수표현으로 풀어도 상관없다. 
+다만 0과 1의 직관적인 표현이 문제 풀이에 조금이나마 도움이 되었다.</p>
 </blockquote>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">limit_number</span> <span class="o">=</span> <span class="mi">150000</span>
-<span class="n">sys</span><span class="p">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="n">limit_number</span><span class="p">)</span>
-<span class="n">N</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-
-<span class="c1">#이동 가능한 도시 경로 작성
-</span><span class="n">path</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">line</span><span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="nb">map</span> <span class="p">(</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-
-
-<span class="n">dp</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">N</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span> <span class="c1">#dp[N][1&lt;&lt;N]
-</span>
-<span class="n">VISITED_COMPLETE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> 
-<span class="n">INF</span><span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">visiting</span><span class="p">(</span><span class="n">last</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
-    
-    <span class="k">if</span> <span class="n">visited</span><span class="o">==</span><span class="n">VISITED_COMPLETE</span> <span class="p">:</span>
-        <span class="k">return</span> <span class="n">path</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">INF</span>
-
-    <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span>
-
-    <span class="n">tmp</span><span class="o">=</span><span class="n">INF</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">visited</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">path</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span> <span class="c1">#방문하지 않은 마을 &amp; path 가 존재
-</span>            <span class="n">tmp</span><span class="o">=</span> <span class="nb">min</span> <span class="p">(</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">visiting</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">visited</span> <span class="o">|</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span> <span class="p">)</span> <span class="o">+</span> <span class="n">path</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
-
-    <span class="n">dp</span><span class="p">[</span><span class="n">last</span><span class="p">][</span><span class="n">visited</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span>
-    <span class="k">return</span> <span class="n">tmp</span>
-
-<span class="n">sol</span> <span class="o">=</span> <span class="n">visiting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span> <span class="p">)</span> <span class="c1">#방문한 곳이 0번 노드뿐이고, 가장 최근에 0번 노드를 방문한 경우에서 재귀함수 시작
-</span><span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">sol</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">if</span> <span class="n">N</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">dp</span><span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="c1">#홀수 일 때
+</span>            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mb">0b110</span><span class="p">]</span><span class="o">=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b001</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b111</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mb">0b011</span><span class="p">]</span><span class="o">=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b100</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b111</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mb">0b000</span><span class="p">]</span><span class="o">=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b111</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mb">0b100</span><span class="p">]</span><span class="o">=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b011</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mb">0b001</span><span class="p">]</span><span class="o">=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b110</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mb">0b111</span><span class="p">]</span><span class="o">=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b000</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b110</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mb">0b011</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mb">0b111</span><span class="p">])</span>
 </code></pre></div></div>
 
-<h3 id="재귀함수-top-down-방식-사용">재귀함수 top down 방식 사용</h3>
-<p>재귀함수 시작지점
-visiting(0,1) = 방문한 곳이 0번 노드 뿐이고 가장 최근에 0번 노드를 방문한 경우, 남은 노드를 모두 방문하고 0번째 노드로 돌아오는 경우 최소 비용</p>
+<h2 id="dp-표현">DP 표현</h2>
 
-<h5 id="1-dp-설계">1. DP 설계</h5>
+<p>dp[x][y] = x번째 열에서 y 타일이 채워졌을 때 가능한 경우의 수</p>
 
-<p>비트마스크를 이용해 x번째 도시를 방문했다면 x번째 이진수를 1로 표시한다.
-N개 도시의 조합을 표현하기 위해서는 N자리 이진수가 필요하고 2^N개의 DP를 통해 십진수로 표현가능.
-a번째 도시를 방문한 상태일 때 방문한 도시들(b)을 표현하기 위해 2차원 배열을 통해 DP 사용한다.
-a번쨰 도시를 방문한 상태이고 방문한 도시들b를 제외하고 남은 도시들을 모두 돌고 다시 0번으로 돌아갔을 때 최솟값을 DP에 저장</p>
-<h4 id="2-재귀함수-설계">2. 재귀함수 설계</h4>
-<h5 id="1번째-if">1번째 if</h5>
-<p>만약 모두 방문했다면, 다시 처음 도시(0)으로 방문하는 비용 혹은 존재하지 않는다면 inf 반환</p>
-<h5 id="2번째-if">2번째 if</h5>
-<p>만약 해당 경우가 이미 DP에 저장되어 있다면 해당값 반환</p>
-<h5 id="3번째-if">3번째 if</h5>
-<p>방문하지 않은 마을과 해당 마을로 향하는 길이 존재한다면  임의의 마을로 가는 경로 중 최소 값 반환→ 이를 계산하기 위해서는 다음 단계 계산 필요</p>
+<p>y를 비트마스킹 기법을 이용하여 채워진 타일을 표시한다. (백준 2098번 TSP문제에서 visited와 유사)</p>
 
-<p>visiting(0,1) ←min ( visiting( 1, 11), visiting(2, 101), visiting(3, 1001), visiting(4,10001) )
-…← 재귀 마지막에 도착 시 ( visiting ( x, 11111) ) x에서 0으로 가는 비용 반환</p>
+<p>문제에서 주어진 N이 최대 8이므로 3자리 이진수로 모두 표현이 가능하다.</p>
+
+<h2 id="dp-점화식">DP 점화식</h2>
+<h3 id="1-현재-열x가-홀수인-경우">1. 현재 열x가 홀수인 경우</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a. dp[x][110] : x-1 열이 짝수이므로 다 채운 경우 dp[x-1][111]에 2x1 타일을 추가하는 경우, x-1열에서 001로 채워 dp[x-1][001]에 1x2 타일을 두 개 채우는 경우  
+	
+b. dp[x][011] : 위의 경우와 동일
+	
+c. dp[x][000] : 현재 열에서 아무것도 채우지 않은 경우. 이것은 x-1 열에서 모두 채운 경우와 동일하다. (=dp[x-1][111]
+
+한 개만 채우는 경우는 불가능하다.
+</code></pre></div></div>
+
+<h3 id="2-현재-열x가-짝수인-경우">2. 현재 열x가 짝수인 경우</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a. dp[x][100] : x-1 열은 홀수이므로 다 채우는 것이 불가능하다. dp[x-1][011]에 1X2 타일을 가장 위에 채우는 경우
+	
+b. dp[x][001] : 위의 경우와 동일
+	
+c. dp[x][111] : 모든 타일을 채우는 경우이다. x-1열에서 아무것도 채우지 않은 경우(dp[x-1][000]) 2x1 타일 3개로 채운다. x-1열에서  두 개를 채운 경우 2x1 타일과 1x2 타일을 사용하여 남은 공간을 채운다(dp[x-1][110], dp[x-1][011] 두 가지 경우 동일). 
+	
+마찬가지로 두 개를 채우는 경우는 불가능하다.
+</code></pre></div></div>
 
         
       </section>
@@ -420,7 +415,7 @@ a번쨰 도시를 방문한 상태이고 방문한 도시들b를 제외하고 �
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-02T00:00:00+09:00">January 2, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-04T00:00:00+09:00">January 4, 2022</time></p>
 
       </footer>
 
@@ -429,12 +424,11 @@ a번쨰 도시를 방문한 상태이고 방문한 도시들b를 제외하고 �
       
   <nav class="pagination">
     
-      <a href="/algorithm/acmicpc-2178/" class="pagination--pager" title="[백준]2178번 미로탐색
+      <a href="/algorithm/acmicpc-2098/" class="pagination--pager" title="[백준]2098번 외판원 순회
 ">이전</a>
     
     
-      <a href="/algorithm/acmicpc-2133/" class="pagination--pager" title="[백준]2133번 타일 채우기
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -458,7 +452,7 @@ a번쨰 도시를 방문한 상태이고 방문한 도시들b를 제외하고 �
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-2133/" rel="permalink">[백준]2133번 타일 채우기
+        <a href="/algorithm/acmicpc-2098/" rel="permalink">[백준]2098번 외판원 순회
 </a>
       
     </h2>
@@ -470,7 +464,7 @@ a번쨰 도시를 방문한 상태이고 방문한 도시들b를 제외하고 �
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-04T00:00:00+09:00">January 4, 2022</time>
+        <time datetime="2022-01-02T00:00:00+09:00">January 2, 2022</time>
       </span>
     
 
@@ -480,7 +474,9 @@ a번쨰 도시를 방문한 상태이고 방문한 도시들b를 제외하고 �
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">매 열마다 3개의 타일이 있다.채워진 타일을 1, 채워지지 않은 타일을 0으로 표시한다.
+    <p class="archive__item-excerpt" itemprop="description">
+  알고리즘분석 시간에 배웠던 NP 중 하나인 TSP 문제다.  N이 작은 경우 DP와 비트마스킹을 통해 풀 수 있다.
+
 
 </p>
   </article>
