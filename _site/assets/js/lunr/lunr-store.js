@@ -34,4 +34,10 @@ var store = [{
         "tags": ["algorithm","python","bitmask","bfs"],
         "url": "/algorithm/acmicpc-1194/",
         "teaser": null
+      },{
+        "title": "비트코인 트레이딩 봇 만들기(0)- python, Upbit API",
+        "excerpt":"얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다. SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. https://www.youtube.com/watch?v=0dA1Pldtbxw 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다. 자, 드가자. python 모듈인 pyupbit를 사용하기 전 우선 API를 익혀보는 글이다....","categories": [],
+        "tags": ["python","api"],
+        "url": "/upbit-trading-bot-0/",
+        "teaser": null
       }]

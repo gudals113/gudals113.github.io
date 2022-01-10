@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[AWS]mac환경에서 EC2 - VPC 설정 - 개구리의 개발 블로그</title>
-<meta name="description" content="VPC">
+<!-- begin _includes/seo.html --><title>비트코인 트레이딩 봇 만들기(0)- python, Upbit API - 개구리의 개발 블로그</title>
+<meta name="description" content="얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다. SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. https://www.youtube.com/watch?v=0dA1Pldtbxw 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다.">
 
 
   <meta name="author" content="개구리">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="[AWS]mac환경에서 EC2 - VPC 설정">
-<meta property="og:url" content="http://localhost:4000/aws/aws-1/">
+<meta property="og:title" content="비트코인 트레이딩 봇 만들기(0)- python, Upbit API">
+<meta property="og:url" content="http://localhost:4000/upbit-trading-bot-0/">
 
 
-  <meta property="og:description" content="VPC">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-01-07T00:00:00+09:00">
+  <meta property="og:description" content="얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다. SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. https://www.youtube.com/watch?v=0dA1Pldtbxw 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-01-11T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/aws/aws-1/">
+
+<link rel="canonical" href="http://localhost:4000/upbit-trading-bot-0/">
 
 
 
@@ -275,142 +275,19 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[AWS]mac환경에서 EC2 - VPC 설정">
-    <meta itemprop="description" content="VPC">
-    <meta itemprop="datePublished" content="2022-01-07T00:00:00+09:00">
+    <meta itemprop="headline" content="비트코인 트레이딩 봇 만들기(0)- python, Upbit API">
+    <meta itemprop="description" content="얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다.SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다.https://www.youtube.com/watch?v=0dA1Pldtbxw비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다.">
+    <meta itemprop="datePublished" content="2022-01-11T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/aws/aws-1/" class="u-url" itemprop="url">[AWS]mac환경에서 EC2 - VPC 설정
+            <a href="http://localhost:4000/upbit-trading-bot-0/" class="u-url" itemprop="url">비트코인 트레이딩 봇 만들기(0)- python, Upbit API
 </a>
           </h1>
           
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-01-07T00:00:00+09:00">January 7, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-        </header>
-      
-
-      <section class="page__content e-content" itemprop="text">
-        
-        <h1 id="vpc">VPC</h1>
-
-<p>격리형 클라우드 리소스
-하나의 계정에서 생성하는 리소스들만의 격리된 네트워크 환경 구성 가능함.</p>
-
-<h2 id="vpc의-구성요소">VPC의 구성요소</h2>
-
-<ol>
-  <li>VPC</li>
-  <li>서브넷</li>
-  <li>라우트 테이블</li>
-  <li>인터넷 게이트웨이</li>
-</ol>
-
-        
-      </section>
-
-      <footer class="page__meta">
-        
-        
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">aws</a><span class="sep">, </span>
-    
-      <a href="/tags/#ec2" class="page__taxonomy-item p-category" rel="tag">ec2</a><span class="sep">, </span>
-    
-      <a href="/tags/#vpc" class="page__taxonomy-item p-category" rel="tag">vpc</a>
-    
-    </span>
-  </p>
-
-
-
-
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/categories/#aws" class="page__taxonomy-item p-category" rel="tag">aws</a>
-    
-    </span>
-  </p>
-
-
-        
-
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-07T00:00:00+09:00">January 7, 2022</time></p>
-
-      </footer>
-
-      
-
-      
-  <nav class="pagination">
-    
-      <a href="/algorithm/acmicpc-2133/" class="pagination--pager" title="[백준]2133번 타일 채우기 - bitmasking
-">이전</a>
-    
-    
-      <a href="/algorithm/acmicpc-1194/" class="pagination--pager" title="[백준]1194번 달이 차오른다, 가자 - bfs, bitmasking
-">다음</a>
-    
-  </nav>
-
-    </div>
-
-    
-  </article>
-
-  
-  
-    <div class="page__related">
-      <h2 class="page__related-title">참고</h2>
-      <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/upbit-trading-bot-0/" rel="permalink">비트코인 트레이딩 봇 만들기(0)- python, Upbit API
-</a>
-      
-    </h2>
-    
 
   <p class="page__meta">
     
@@ -428,12 +305,145 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다.
-SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다.
-https://www.youtube.com/watch?v=...</p>
-  </article>
-</div>
+        </header>
+      
 
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다.<br />
+SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다.<br />
+<a href="https://www.youtube.com/watch?v=0dA1Pldtbxw">https://www.youtube.com/watch?v=0dA1Pldtbxw</a><br />
+비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다.</p>
+
+<p>자, 드가자.</p>
+
+<blockquote>
+  <p>python 모듈인 pyupbit를 사용하기 전 우선 API를 익혀보는 글이다. pyupbit 사용기는 다음 글부터.</p>
+</blockquote>
+
+<h1 id="upbit-open-api-사용하기">Upbit Open API 사용하기</h1>
+
+<h2 id="1-업비트-회원가입--마이페이지--open-api-관리">1. 업비트 회원가입 → 마이페이지 → Open API 관리</h2>
+
+<p><a href="https://upbit.com/mypage/open_api_management">https://upbit.com/mypage/open_api_management</a></p>
+
+<p>자산조회, 주문조회, 주문하기 체크, 특정IP에서만 실행 체크 후 Open API Key 발급받기</p>
+
+<p>Access Key와 Secret Key 발급 완료, 따로 저장해두기.</p>
+
+<h2 id="2-고객센터--open-api-안내--업비트-개발자-센터--api-reference">2. 고객센터 → Open API 안내 → 업비트 개발자 센터 → API Reference</h2>
+
+<p>개발자 센터에서 샘플 코드를 얻을 수 있다.</p>
+
+<h3 id="마켓-코드-조회">마켓 코드 조회</h3>
+
+<p>업비트에서 거래 가능한 마켓 목록을 불러오자. python의 requests 라이브러리가 필요하다.<br />
+맥환경에서 개발 중이므로 python 라이브러리 설치를 위해 homebrew와 pip 설치 후 진행하였다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
+</code></pre></div></div>
+
+<p><em>market.py</em></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.upbit.com/v1/market/all?isDetails=false"</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>response.text 대신 json함수를 이용하였다.</p>
+
+<h3 id="전체-계좌-조회">전체 계좌 조회</h3>
+
+<p>env파일에 ACCESS_KEY와 SECRET_KEY를 저장해두었다.<br />
+python의 내장 라이브러리인 os에서 os.environ을 사용하면 env 파일을 읽어올 수 있다.</p>
+
+<p><em>account.py</em></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">jwt</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'ACCESS_KEY'</span><span class="p">]</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span>
+<span class="n">server_url</span> <span class="o">=</span> <span class="s">"https://api.upbit.com"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'access_key'</span><span class="p">:</span> <span class="n">access_key</span><span class="p">,</span>
+    <span class="s">'nonce'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="p">.</span><span class="n">uuid4</span><span class="p">()),</span>
+<span class="p">}</span>
+
+<span class="n">jwt_token</span> <span class="o">=</span> <span class="n">jwt</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">authorize_token</span> <span class="o">=</span> <span class="s">'Bearer {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">jwt_token</span><span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="n">authorize_token</span><span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">server_url</span> <span class="o">+</span> <span class="s">"/v1/accounts"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>실행하면 현재 자산을 불러올 수 있다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#api" class="page__taxonomy-item p-category" rel="tag">api</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-11T00:00:00+09:00">January 11, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/algorithm/acmicpc-1194/" class="pagination--pager" title="[백준]1194번 달이 차오른다, 가자 - bfs, bitmasking
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
         
           
 
@@ -467,6 +477,44 @@ https://www.youtube.com/watch?v=...</p>
 
 
     <p class="archive__item-excerpt" itemprop="description">처음에 비트마스킹을 잘못 이해했다. 보유할 수 있는 열쇠의 경우의 수를 비트마스킹으로 표현했다. (7bit)
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/aws/aws-1/" rel="permalink">[AWS]mac환경에서 EC2 - VPC 설정
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-01-07T00:00:00+09:00">January 7, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">VPC
 
 </p>
   </article>
