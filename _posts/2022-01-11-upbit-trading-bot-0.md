@@ -1,6 +1,7 @@
 ---
 title: 비트코인 트레이딩 봇 만들기(0)- python, Upbit API
-categories: []
+categories: 
+- dev
 tags:
 - python
 - api
