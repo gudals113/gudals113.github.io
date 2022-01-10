@@ -5,8 +5,8 @@ categories:
 - life
 tags:
 - life
-toc: true
-toc_sticky: true
+# toc: true
+# toc_sticky: true
 date: '2021-12-30'
 ---
 

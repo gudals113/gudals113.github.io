@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[백준]2133번 타일 채우기 - 개구리의 개발 블로그</title>
+<!-- begin _includes/seo.html --><title>[백준]2133번 타일 채우기 - bitmasking - 개구리의 개발 블로그</title>
 <meta name="description" content="매 열마다 3개의 타일이 있다.채워진 타일을 1, 채워지지 않은 타일을 0으로 표시한다.">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="[백준]2133번 타일 채우기">
+<meta property="og:title" content="[백준]2133번 타일 채우기 - bitmasking">
 <meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-2133/">
 
 
@@ -275,7 +275,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[백준]2133번 타일 채우기">
+    <meta itemprop="headline" content="[백준]2133번 타일 채우기 - bitmasking">
     <meta itemprop="description" content="매 열마다 3개의 타일이 있다.채워진 타일을 1, 채워지지 않은 타일을 0으로 표시한다.">
     <meta itemprop="datePublished" content="2022-01-04T00:00:00+09:00">
     
@@ -284,7 +284,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/algorithm/acmicpc-2133/" class="u-url" itemprop="url">[백준]2133번 타일 채우기
+            <a href="http://localhost:4000/algorithm/acmicpc-2133/" class="u-url" itemprop="url">[백준]2133번 타일 채우기 - bitmasking
 </a>
           </h1>
           
@@ -349,22 +349,22 @@
 <h2 id="dp-점화식">DP 점화식</h2>
 <h3 id="1-현재-열x가-홀수인-경우">1. 현재 열x가 홀수인 경우</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a. dp[x][110] : x-1 열이 짝수이므로 다 채운 경우 dp[x-1][111]에 2x1 타일을 추가하는 경우, x-1열에서 001로 채워 dp[x-1][001]에 1x2 타일을 두 개 채우는 경우  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. dp[x][110] : x-1 열이 짝수이므로 다 채운 경우 dp[x-1][111]에 2x1 타일을 추가하는 경우, x-1열에서 001로 채워 dp[x-1][001]에 1x2 타일을 두 개 채우는 경우  
 	
-b. dp[x][011] : 위의 경우와 동일
+2. dp[x][011] : 위의 경우와 동일
 	
-c. dp[x][000] : 현재 열에서 아무것도 채우지 않은 경우. 이것은 x-1 열에서 모두 채운 경우와 동일하다. (=dp[x-1][111]
+3. dp[x][000] : 현재 열에서 아무것도 채우지 않은 경우. 이것은 x-1 열에서 모두 채운 경우와 동일하다. (=dp[x-1][111]
 
 한 개만 채우는 경우는 불가능하다.
 </code></pre></div></div>
 
 <h3 id="2-현재-열x가-짝수인-경우">2. 현재 열x가 짝수인 경우</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a. dp[x][100] : x-1 열은 홀수이므로 다 채우는 것이 불가능하다. dp[x-1][011]에 1X2 타일을 가장 위에 채우는 경우
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. dp[x][100] : x-1 열은 홀수이므로 다 채우는 것이 불가능하다. dp[x-1][011]에 1X2 타일을 가장 위에 채우는 경우
 	
-b. dp[x][001] : 위의 경우와 동일
+2. dp[x][001] : 위의 경우와 동일
 	
-c. dp[x][111] : 모든 타일을 채우는 경우이다. x-1열에서 아무것도 채우지 않은 경우(dp[x-1][000]) 2x1 타일 3개로 채운다. x-1열에서  두 개를 채운 경우 2x1 타일과 1x2 타일을 사용하여 남은 공간을 채운다(dp[x-1][110], dp[x-1][011] 두 가지 경우 동일). 
+3. dp[x][111] : 모든 타일을 채우는 경우이다. x-1열에서 아무것도 채우지 않은 경우(dp[x-1][000]) 2x1 타일 3개로 채운다. x-1열에서  두 개를 채운 경우 2x1 타일과 1x2 타일을 사용하여 남은 공간을 채운다(dp[x-1][110], dp[x-1][011] 두 가지 경우 동일). 
 	
 마찬가지로 두 개를 채우는 경우는 불가능하다.
 </code></pre></div></div>
@@ -424,11 +424,12 @@ c. dp[x][111] : 모든 타일을 채우는 경우이다. x-1열에서 아무것�
       
   <nav class="pagination">
     
-      <a href="/algorithm/acmicpc-2098/" class="pagination--pager" title="[백준]2098번 외판원 순회
+      <a href="/algorithm/acmicpc-2098/" class="pagination--pager" title="[백준]2098번 외판원 순회 - bitmasking
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/aws/aws-1/" class="pagination--pager" title="[AWS]mac환경에서 EC2 - VPC 설정
+">다음</a>
     
   </nav>
 
@@ -452,7 +453,83 @@ c. dp[x][111] : 모든 타일을 채우는 경우이다. x-1열에서 아무것�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-2098/" rel="permalink">[백준]2098번 외판원 순회
+        <a href="/algorithm/acmicpc-1194/" rel="permalink">[백준]1194번 달이 차오른다, 가자 - bfs, bitmasking
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-01-10T00:00:00+09:00">January 10, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">처음에 비트마스킹을 잘못 이해했다. 보유할 수 있는 열쇠의 경우의 수를 비트마스킹으로 표현했다. (7bit)
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/aws/aws-1/" rel="permalink">[AWS]mac환경에서 EC2 - VPC 설정
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-01-07T00:00:00+09:00">January 7, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">VPC
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-2098/" rel="permalink">[백준]2098번 외판원 순회 - bitmasking
 </a>
       
     </h2>
@@ -492,7 +569,7 @@ c. dp[x][111] : 모든 타일을 채우는 경우이다. x-1열에서 아무것�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-2178/" rel="permalink">[백준]2178번 미로탐색
+        <a href="/algorithm/acmicpc-2178/" rel="permalink">[백준]2178번 미로탐색 - bfs
 </a>
       
     </h2>
@@ -518,43 +595,6 @@ c. dp[x][111] : 모든 타일을 채우는 경우이다. x-1열에서 아무것�
 BFS가 끝나면 prev를 거꾸로 돌아가며 지나온 개수를 구한다.
 돌아가는 과정이 비효율적이다.
 
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/life/introduce/" rel="permalink">안녕하세요 개구리입니다.
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-12-30T00:00:00+09:00">December 30, 2021</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">안녕하세요.
 </p>
   </article>
 </div>
