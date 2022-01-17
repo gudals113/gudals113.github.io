@@ -36,8 +36,20 @@ var store = [{
         "teaser": null
       },{
         "title": "비트코인 트레이딩 봇 만들기(0)- python, Upbit API",
-        "excerpt":"얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다. SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. https://www.youtube.com/watch?v=0dA1Pldtbxw 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다. 자, 드가자. python 모듈인 pyupbit를 사용하기 전 우선 API를 익혀보는 글이다....","categories": ["dev"],
+        "excerpt":"얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다. SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다. https://www.youtube.com/watch?v=0dA1Pldtbxw 자, 드가자. python 모듈인 pyupbit를 사용하기 전 우선 API를 익혀보는 글이다....","categories": ["dev"],
         "tags": ["python","api"],
         "url": "/dev/upbit-trading-bot-0/",
+        "teaser": null
+      },{
+        "title": "[백준/python]10816번 숫자 카드2 - binary search",
+        "excerpt":"10815번의 변형 문제이다. 해당 문제를 푸는 여러 풀이가 있지만 어떤 풀이를 선택하든 딕셔너리(해쉬맵)을 사용해야 시간 내에 풀 수 있다. 10815번과 다르게 이진 탐색의 범위를 줄여줄 때 mid에 +-1 을 하지 않고 범위를 줄이는 방식을 선택했다. 이렇게 하기 위해서는 초기에 s와 t를 리스트이 범위[0,N-1]보다 넓게[-1,N] 설정해주어야 루프의 조건이 t-s&gt;1 일 때...","categories": ["algorithm"],
+        "tags": ["algorithm","binarySearch","python"],
+        "url": "/algorithm/acmicpc-10816/",
+        "teaser": null
+      },{
+        "title": "[백준]2001번 보석줍기 -  bfs, bitmasking",
+        "excerpt":"이제 비트마스킹은 그만 풀어야겠다. 2001번 보석줍기 문제는 주어진 테스트 케이스가 많이 없었고 오류를 찾지 못해서 5시간은 걸린 것 같다. #보석줍기 bitmasking from collections import deque def bitCount(bit): count=0 while bit&gt;0: count+= 0b1 &amp; bit bit = bit&gt;&gt;1 return count N,M,K= map( int, input().split() ) path=[[]for _ in range(N+1)] diamond=[] for...","categories": ["algorithm"],
+        "tags": ["algorithm","bfs","bitmask","graph"],
+        "url": "/algorithm/acmicpc-2001/",
         "teaser": null
       }]

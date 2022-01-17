@@ -8,10 +8,12 @@ tags:
 ---
 
 얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다.  
-SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다.  
-[https://www.youtube.com/watch?v=0dA1Pldtbxw](https://www.youtube.com/watch?v=0dA1Pldtbxw)  
-비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다.  
+SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다.  
+  
 
+[https://www.youtube.com/watch?v=0dA1Pldtbxw](https://www.youtube.com/watch?v=0dA1Pldtbxw)  
+  
+  
 자, 드가자.
 
 
@@ -25,7 +27,6 @@ SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 �
 [https://upbit.com/mypage/open_api_management](https://upbit.com/mypage/open_api_management)
 
 자산조회, 주문조회, 주문하기 체크, 특정IP에서만 실행 체크 후 Open API Key 발급받기
-
 Access Key와 Secret Key 발급 완료, 따로 저장해두기.
 
 
