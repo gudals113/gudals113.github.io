@@ -29,7 +29,7 @@ var store = [{
         "url": "/aws/aws-1/",
         "teaser": null
       },{
-        "title": "[백준]1194번 달이 차오른다, 가자 - bfs, bitmasking",
+        "title": "[백준/python]1194번 달이 차오른다, 가자 - bfs, bitmasking",
         "excerpt":"처음에 비트마스킹을 잘못 이해했다. 보유할 수 있는 열쇠의 경우의 수를 비트마스킹으로 표현했다. (7bit) visited를 2차원 배열로 만들고 특정 지점을 방문했을 때 가지고 있는 열쇠를 visited배열의 값으로 갖도록 코드를 짰다. ex)visited[x][y] = 0b1 000 001 : a 열쇠를 갖고 있고 해당 지점을 방문한 적이 있음, visited[x][y] = 0b0 100 001 :...","categories": ["algorithm"],
         "tags": ["algorithm","python","bitmask","bfs"],
         "url": "/algorithm/acmicpc-1194/",
@@ -47,9 +47,15 @@ var store = [{
         "url": "/algorithm/acmicpc-10816/",
         "teaser": null
       },{
-        "title": "[백준]2001번 보석줍기 -  bfs, bitmasking",
+        "title": "[백준/python]2001번 보석줍기 -  bfs, bitmasking",
         "excerpt":"이제 비트마스킹은 그만 풀어야겠다. 2001번 보석줍기 문제는 주어진 테스트 케이스가 많이 없었고 오류를 찾지 못해서 5시간은 걸린 것 같다. #보석줍기 bitmasking from collections import deque def bitCount(bit): count=0 while bit&gt;0: count+= 0b1 &amp; bit bit = bit&gt;&gt;1 return count N,M,K= map( int, input().split() ) path=[[]for _ in range(N+1)] diamond=[] for...","categories": ["algorithm"],
         "tags": ["algorithm","bfs","bitmask","graph"],
         "url": "/algorithm/acmicpc-2001/",
+        "teaser": null
+      },{
+        "title": "[백준/python]21608번 상어 초등학교 -  implementation",
+        "excerpt":"구현 문제는 코드를 작성하면서도 너무 복잡한 것 아닌가 하는 의문이 든다. 그러나 의문을 뒤로 하고 일단 끝까지 풀 수 있다. N= int(input()) room=[[0 for _ in range(N)] for _ in range(N)] #채워진 상태 wanted=[[] for _ in range(1+ N**2)] # 내가 원하는 친구들 assigned=[[-1,-1] for _ in range (1+ N**2)]...","categories": ["algorithm"],
+        "tags": ["algorithm","python","implementation"],
+        "url": "/algorithm/acmicpc-21608/",
         "teaser": null
       }]
