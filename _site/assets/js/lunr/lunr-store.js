@@ -68,6 +68,18 @@ var store = [{
         "title": "[백준/python]15732번 도토리 숨기기 - binary search",
         "excerpt":"1300번 문제 K번째 수와 유사한 문제이다. 어떤 것을 기준으로 이분 탐색을 할 지 찾는 것이 중요하다. # 도토리 숨기기 (binary search) 1300번문제와 유사 import sys def input(): return sys.stdin.readline() N,K,D = map(int, input().split()) rule=[] for i in range(K): line = list(map(int, input().split())) rule.append(line) ans=0 s,t=0, N+1 while t-s&gt;1: mid =...","categories": ["algorithm"],
         "tags": ["binarySearch","algorithm","python"],
-        "url": "/algorithm/acmicpc/",
+        "url": "/algorithm/acmicpc-15732/",
+        "teaser": null
+      },{
+        "title": "[백준/python]1182번 부분수열의 합 - backtracking",
+        "excerpt":"N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다. 코드 DFS를 이용해 재귀로 풀었다. N, S = map(int, input().split()) arr = list(map(int, input().split())) ans = 0 def...","categories": ["algorithm"],
+        "tags": ["algorithm","backtracking","dfs","python"],
+        "url": "/algorithm/acmicpc-1182/",
+        "teaser": null
+      },{
+        "title": "[백준/python]15649번 N과 M (1), 15650번 (2) - backtracking",
+        "excerpt":"N과 M 문제를 통해 백트래킹을 익혀보자. 백트래킹에서 가장 중요한 전략은 가지치기이다. 백트래킹은 기본적으로 재귀 함수로 구현된 DFS의 구조이다. 재귀를 반복하며 조건과 맞지 않는 케이스를 잘 처리하는 것이 중요하다. 15649번 N과 M (1) 코드 N,M = map(int, input().split()) arr=[] ans=0 def DFS(ans): global arr if ans==M: print(' '.join(map(str, arr))) return for...","categories": ["algorithm"],
+        "tags": ["backtracking","dfs","algorithm","python"],
+        "url": "/algorithm/acmicpc-15649/",
         "teaser": null
       }]
