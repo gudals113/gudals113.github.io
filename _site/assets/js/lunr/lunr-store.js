@@ -77,7 +77,7 @@ var store = [{
         "url": "/algorithm/acmicpc-1182/",
         "teaser": null
       },{
-        "title": "[백준/python]15649번 N과 M (1), 15650번 (2) - backtracking",
+        "title": "[백준/python]15649번 N과 M (1), 15650번 N과 M(2) - backtracking",
         "excerpt":"N과 M 문제를 통해 백트래킹을 익혀보자. 백트래킹에서 가장 중요한 전략은 가지치기이다. 백트래킹은 기본적으로 재귀 함수로 구현된 DFS의 구조이다. 재귀를 반복하며 조건과 맞지 않는 케이스를 잘 처리하는 것이 중요하다. 15649번 N과 M (1) 코드 N,M = map(int, input().split()) arr=[] ans=0 def DFS(ans): global arr if ans==M: print(' '.join(map(str, arr))) return for...","categories": ["algorithm"],
         "tags": ["backtracking","dfs","algorithm","python"],
         "url": "/algorithm/acmicpc-15649/",

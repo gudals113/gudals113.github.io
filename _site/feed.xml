@@ -5,12 +5,12 @@
     <description>CS 및 서버 개발 공부</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Jan 2022 22:57:20 +0900</pubDate>
-    <lastBuildDate>Mon, 24 Jan 2022 22:57:20 +0900</lastBuildDate>
+    <pubDate>Mon, 24 Jan 2022 23:01:37 +0900</pubDate>
+    <lastBuildDate>Mon, 24 Jan 2022 23:01:37 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
-        <title>[백준/python]15649번 N과 M (1), 15650번 (2) - backtracking</title>
+        <title>[백준/python]15649번 N과 M (1), 15650번 N과 M(2) - backtracking</title>
         <description>&lt;p&gt;N과 M 문제를 통해 백트래킹을 익혀보자.&lt;/p&gt;
 
 &lt;p&gt;백트래킹에서 가장 중요한 전략은 가지치기이다. 백트래킹은 기본적으로 재귀 함수로 구현된 DFS의 구조이다. 재귀를 반복하며 조건과 맞지 않는 케이스를 잘 처리하는 것이 중요하다.&lt;/p&gt;
@@ -80,7 +80,7 @@
 
 &lt;p&gt;위의 문제와 다르게 중복이 불가능한 수열이다. 즉 위의 문제는 1부터 N까지의 숫자에서 순열을 뽑는 문제, 해당 문제는 조합를 뽑는 문제이다.&lt;/p&gt;
 
-&lt;p&gt;15649번 문제에서 ans를 넘겨주는 풀이에서 착안하여 이번에는 재귀함수에 마지막 인덱스를 변수로 넘겨준다.&lt;/p&gt;
+&lt;p&gt;15649번 문제에서 ans를 넘겨주는 풀이에서 착안하여 이번에는 재귀함수에 반복문에서 뽑았던 마지막 인덱스를 변수로 넘겨준다. 이를 통해 앞에서 지나온 숫자들은 다시 반복문에서 실행되지 않게 된다.&lt;/p&gt;
 
 &lt;h2 id=&quot;코드-1&quot;&gt;코드&lt;/h2&gt;
 
