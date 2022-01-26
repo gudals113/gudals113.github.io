@@ -1,5 +1,10 @@
 ---
 title: "[OS]Operating System Concepts - 공룡책 개념 정리(1)"
+tags:
+- cs
+- os
+categories:
+- cs
 ---
 
 ## A stored-program computer
