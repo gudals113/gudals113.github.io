@@ -82,4 +82,10 @@ var store = [{
         "tags": ["backtracking","dfs","algorithm","python"],
         "url": "/algorithm/acmicpc-15649/",
         "teaser": null
+      },{
+        "title": "[OS]Operating System Concepts - 공룡책 개념 정리(1)",
+        "excerpt":"A stored-program computer stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터 program - set of instructions Operating System Operating System is a software that manages a computer’s hardware. provides a basis for application progrmas acts as an intermediary(중개인) between the computer user and the computer hardware...","categories": [],
+        "tags": [],
+        "url": "/dinosaur-os-1/",
+        "teaser": null
       }]
