@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[백준/python]1182번 부분수열의 합 - backtracking - 개구리의 개발 블로그</title>
-<meta name="description" content="N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다. 코드">
+<!-- begin _includes/seo.html --><title>[백준/python]1987번 알파벳 - backtracking - 개구리의 개발 블로그</title>
+<meta name="description" content="보드를 방문하며 해당 보드를 방문한 적이 있는지, 해당 알파벳을 이미 마주친 적 있는 지만 확인해주면 된다. DFS를 이용한 백트래킹으로 간단하게 구현했다.">
 
 
   <meta name="author" content="개구리">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="[백준/python]1182번 부분수열의 합 - backtracking">
-<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-1182/">
+<meta property="og:title" content="[백준/python]1987번 알파벳 - backtracking">
+<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-1987/">
 
 
-  <meta property="og:description" content="N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다. 코드">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-01-24T00:00:00+09:00">
+  <meta property="og:description" content="보드를 방문하며 해당 보드를 방문한 적이 있는지, 해당 알파벳을 이미 마주친 적 있는 지만 확인해주면 된다. DFS를 이용한 백트래킹으로 간단하게 구현했다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-01-31T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-1182/">
+
+<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-1987/">
 
 
 
@@ -275,16 +275,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[백준/python]1182번 부분수열의 합 - backtracking">
-    <meta itemprop="description" content="N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다.코드">
-    <meta itemprop="datePublished" content="2022-01-24T00:00:00+09:00">
+    <meta itemprop="headline" content="[백준/python]1987번 알파벳 - backtracking">
+    <meta itemprop="description" content="보드를 방문하며 해당 보드를 방문한 적이 있는지, 해당 알파벳을 이미 마주친 적 있는 지만 확인해주면 된다. DFS를 이용한 백트래킹으로 간단하게 구현했다.">
+    <meta itemprop="datePublished" content="2022-01-31T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/algorithm/acmicpc-1182/" class="u-url" itemprop="url">[백준/python]1182번 부분수열의 합 - backtracking
+            <a href="http://localhost:4000/algorithm/acmicpc-1987/" class="u-url" itemprop="url">[백준/python]1987번 알파벳 - backtracking
 </a>
           </h1>
           
@@ -295,7 +295,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-24T00:00:00+09:00">January 24, 2022</time>
+        <time datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time>
       </span>
     
 
@@ -310,112 +310,59 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다.</p>
-<h2 id="코드">코드</h2>
+        <p>보드를 방문하며 해당 보드를 방문한 적이 있는지, 해당 알파벳을 이미 마주친 적 있는 지만 확인해주면 된다. DFS를 이용한 백트래킹으로 간단하게 구현했다.</p>
 
-<p>DFS를 이용해 재귀로 풀었다.</p>
+<p>다른 풀이를 찾아보니 BFS로 푼 경우도 있고 시간초과가 나는 경우도 있는 것 같다. DFS와 백트래킹을 사용하지 않는다면 최단 거리 문제를 푸는 것처럼 BFS로 풀어도 되는 문제이다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">R</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">board</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">R</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+        <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">append</span><span class="p">(</span> <span class="nb">ord</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">-</span><span class="mi">65</span> <span class="p">)</span>
 
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>    
+<span class="n">visited</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">C</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">)]</span>
+<span class="n">checklist</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">)]</span>
 
-    <span class="k">global</span> <span class="n">ans</span>
+<span class="n">checklist</span><span class="p">[</span><span class="n">board</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">visited</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">tmp</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">sol</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">sol</span>
+    <span class="k">global</span> <span class="n">tmp</span>
     
-    <span class="n">tmp</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">tmp</span><span class="o">+=</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">nx</span><span class="p">,</span><span class="n">ny</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">nx</span><span class="o">&lt;</span><span class="n">R</span> <span class="ow">and</span> <span class="mi">0</span><span class="o">&lt;=</span><span class="n">ny</span><span class="o">&lt;</span><span class="n">C</span> <span class="p">:</span>
+            <span class="n">alphabet</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span>  <span class="p">:</span>
+                <span class="k">if</span> <span class="n">checklist</span><span class="p">[</span><span class="n">alphabet</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="n">visited</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+                    <span class="n">checklist</span><span class="p">[</span><span class="n">alphabet</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+                    <span class="n">tmp</span><span class="o">+=</span><span class="mi">1</span>
+                    <span class="n">DFS</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+                    <span class="n">tmp</span><span class="o">-=</span><span class="mi">1</span>
+                    <span class="n">checklist</span><span class="p">[</span><span class="n">alphabet</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+                    <span class="n">visited</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
     
-    <span class="k">if</span> <span class="n">tmp</span><span class="o">==</span><span class="n">S</span><span class="p">:</span>
-        <span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
-    
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-            <span class="n">DFS</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-            <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-            
+    <span class="n">sol</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span>
     <span class="k">return</span>
-    
-<span class="n">start</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-    <span class="n">DFS</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> 
-    <span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>DFS( visited, index ) : visited 배열 내부에 방문한 곳을 체크한다. 이 때 i번째 인덱스가 마지막으로 선택된 인덱스이다. 재귀함수를 통해 현재 인덱스를 선택하고 DFS를 실행하고 다시 방문 상태를 되돌려 놓는다. 루프를 통해 방문 배열의 마지막 인덱스까지 실행한다.</p>
-
-<p>재귀함수를 실행할 때마다 현재 표시된 인덱스들과 동일하게 부분수열을 뽑고 이 때 합이 S라면 전역 변수 ans에 1을 더해준다.</p>
-
-<p>DFS를 1개만 뽑은 모든 경우에서 실행한다.</p>
-
-<h2 id="백트래킹">백트래킹</h2>
-
-<p>백트래킹 개념과 다른 사람들의 풀이를 참고했다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
-<span class="n">tmp</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">sol</span>
-    <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">N</span> <span class="p">:</span>
-        <span class="k">return</span>
-
-    <span class="k">if</span> <span class="n">tmp</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="n">S</span><span class="p">:</span>
-        <span class="n">sol</span> <span class="o">+=</span><span class="mi">1</span>
-
-    <span class="n">DFS</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="n">tmp</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">DFS</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="n">tmp</span> <span class="o">-=</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="c1"># 백트래킹
-</span>
-<span class="n">DFS</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">DFS</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </code></pre></div></div>
-
-<p>처음에 푼 방식과 다르게 방문표시를 기준으로 DFS를 실행하고 다시 방문표시를 돌리지 않고 아예 부분 수열의 합을 기준으로 생각한다.</p>
-
-<p>현재 인덱스를 선택한 경우 현재까지의 부분합에 현재 인덱스에 해당되는 수열 값을 더하고 DFS를 실행한 뒤 처음 상태로 되돌려 준다.</p>
-
-<p>현재 인덱스를 선택하지 않은 경우 인덱스만 +1을 하고 DFS를 실행한다.</p>
-
-<h3 id="ex-1234-에서-합-6인-부분수열-찾기-1-index">Ex) [1,2,3,4] 에서 합 6인 부분수열 찾기 (1-index)</h3>
-
-<p>tmp=0, DFS(1) 실행1</p>
-
-<p>tmp=0, DFS(2) 실행2</p>
-
-<p>tmp=1, DFS(2) 실행</p>
-
-<p>tmp=0, DFS(3) 실행3</p>
-
-<p>tmp=2, DFS(3) 실행14 →</p>
-
-<p>tmp2, DFS(4) 실행 15 → tmp2, DFS(5) 실행16 return5(실행17) / tmp6, DFS(5) 실행18 return6(실행19)</p>
-
-<p>tmp5, DFS(4) 실행 20 → …</p>
-
-<p>tmp=0, DFS(4) 실행4,</p>
-
-<p>tmp=3, DFS(4) 실행9 →</p>
-
-<p>tmp=3, DFS(5) 실행10, return3(실행 11) / tmp=7, DFS(5) 실행12, return4(실행13)</p>
-
-<p>tmp=0, DFS(5) 실행5 → return1(실행6)</p>
-
-<p>tmp=4, DFS(5) 실행7 → return2(실행8)</p>
-
-<p>네..이런식으로 재귀를 타고 올라갈 수 있다. 이렇게 푸는 방법을 혼자 생각하려면 아마 하루는 넘게 걸렸을 것 같다.</p>
+<h3 id="구현">구현</h3>
+<ol>
+  <li>알파벳의 방문 표시를 간단하게 수행하기 위해 아스키코드 표를 참조하여 정수형태로 변환한다.</li>
+  <li>보드를 방문한 적이 있는지 visited 배열에 표시하고 checklist에는 방문한 알파벳을 표시한다.</li>
+  <li>tmp에 한 칸씩 나아갈 때마다 이동횟수를 추가한다.</li>
+</ol>
 
         
       </section>
@@ -436,9 +383,7 @@
     
       <a href="/tags/#backtracking" class="page__taxonomy-item p-category" rel="tag">backtracking</a><span class="sep">, </span>
     
-      <a href="/tags/#dfs" class="page__taxonomy-item p-category" rel="tag">dfs</a><span class="sep">, </span>
-    
-      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+      <a href="/tags/#dfs" class="page__taxonomy-item p-category" rel="tag">dfs</a>
     
     </span>
   </p>
@@ -463,7 +408,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-24T00:00:00+09:00">January 24, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time></p>
 
       </footer>
 
@@ -472,11 +417,11 @@
       
   <nav class="pagination">
     
-      <a href="/algorithm/acmicpc-15732/" class="pagination--pager" title="[백준/python]15732번 도토리 숨기기 - binary search
+      <a href="/algorithm/acmicpc-14712/" class="pagination--pager" title="[백준/python]14712번 넴모넴모(Easy) - backtracking
 ">이전</a>
     
     
-      <a href="/algorithm/acmicpc-15649/" class="pagination--pager" title="[백준/python]15649번 N과 M (1), 15650번 N과 M(2) - backtracking
+      <a href="/algorithm/acmicpc-2580/" class="pagination--pager" title="[백준/python]2580번 스도쿠 - backtracking
 ">다음</a>
     
   </nav>
@@ -575,44 +520,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-1987/" rel="permalink">[백준/python]1987번 알파벳 - backtracking
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">보드를 방문하며 해당 보드를 방문한 적이 있는지, 해당 알파벳을 이미 마주친 적 있는 지만 확인해주면 된다. DFS를 이용한 백트래킹으로 간단하게 구현했다.
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/algorithm/acmicpc-14712/" rel="permalink">[백준/python]14712번 넴모넴모(Easy) - backtracking
 </a>
       
@@ -637,6 +544,44 @@
 
     <p class="archive__item-excerpt" itemprop="description">```python
 #넴모넴모(easy) , backtraking
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cs/dinosaur-os-1/" rel="permalink">[OS]Operating System Concepts - 공룡책 개념 정리(1)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-01-26T00:00:00+09:00">January 26, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">A stored-program computer
 
 </p>
   </article>

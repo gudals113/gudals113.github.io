@@ -88,4 +88,28 @@ var store = [{
         "tags": ["cs","os"],
         "url": "/cs/dinosaur-os-1/",
         "teaser": null
+      },{
+        "title": "[백준/python]14712번 넴모넴모(Easy) - backtracking",
+        "excerpt":"#넴모넴모(easy) , backtraking N, M = map(int, input().split()) arr=[ [0 for _ in range(M+1)] for _ in range(N+1) ] ans=0 def DFS(index_x,index_y): global ans if index_x==N and index_y == M+1 : ans+=1 return if index_y ==M+1: index_x+=1 index_y=1 DFS(index_x, index_y+1) if arr[index_x -1][index_y]==0 or arr[index_x][index_y-1]==0 or arr[index_x-1][index_y-1]==0: arr[index_x][index_y]=1 DFS(index_x, index_y+1)...","categories": ["algorithm"],
+        "tags": ["algorithm","backtracking","dfs"],
+        "url": "/algorithm/acmicpc-14712/",
+        "teaser": null
+      },{
+        "title": "[백준/python]1987번 알파벳 - backtracking",
+        "excerpt":"보드를 방문하며 해당 보드를 방문한 적이 있는지, 해당 알파벳을 이미 마주친 적 있는 지만 확인해주면 된다. DFS를 이용한 백트래킹으로 간단하게 구현했다. 다른 풀이를 찾아보니 BFS로 푼 경우도 있고 시간초과가 나는 경우도 있는 것 같다. DFS와 백트래킹을 사용하지 않는다면 최단 거리 문제를 푸는 것처럼 BFS로 풀어도 되는 문제이다. R, C =...","categories": ["algorithm"],
+        "tags": ["algorithm","backtracking","dfs"],
+        "url": "/algorithm/acmicpc-1987/",
+        "teaser": null
+      },{
+        "title": "[백준/python]2580번 스도쿠 - backtracking",
+        "excerpt":"스도쿠 문제다. 스도쿠 문제를 풀어봤다면 백트래킹으로 풀어야 된다는 생각이 자연스럽게 떠오를 것 같다. #스도쿠 sdoku = [] start = [] for i in range(9): line = list(map(int, input().split())) for j in range(9): if line[j]==0 : start.append([i,j]) sdoku.append( line ) def DFS(idx): global ans if idx == len(start) : for i...","categories": ["algorithm"],
+        "tags": ["algorithm","dfs","backtracking"],
+        "url": "/algorithm/acmicpc-2580/",
+        "teaser": null
+      },{
+        "title": "[백준/python]9663번 N-queen - backtracking",
+        "excerpt":"백트래킹의 대표적인 예제다. 넴모넴모 문제를 풀고 풀어서 모든 격자를 방문하며 가로방향, 세로방향, 대각선 방향을 체크하는 방식의 풀이를 생각했었다. 상당히 복잡하고 시간도 오래 걸렸다. 많은 시행착오 후에 각각의 행과 열에는 오직 1개의 퀸이 올 수 있다는 것을 생각해낼 수 있었다. # N - queen N = int(input()) chess=[-1 for _ in...","categories": ["algorithm"],
+        "tags": ["algorithm","backtracking","dfs"],
+        "url": "/algorithm/acmicpc-9663/",
+        "teaser": null
       }]
