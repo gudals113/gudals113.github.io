@@ -112,4 +112,34 @@ var store = [{
         "tags": ["algorithm","backtracking","dfs"],
         "url": "/algorithm/acmicpc-9663/",
         "teaser": null
+      },{
+        "title": "[백준/python]7569번 토마토 - \bbfs",
+        "excerpt":"3차원 그래프 문제다. 이미 익은 토마토를 기준으로 BFS를 실행하면서 총 소요되는 시간을 더해준다. #토마토 from collections import deque M,N,H = map(int, input().split()) tomato = [] already =[] #이미 익은 좌표 notready = 0 #인 익은 개수 for i in range(H): floor = [] for j in range(N): line = list(map(int,...","categories": ["algorithm"],
+        "tags": ["algorithm","bfs"],
+        "url": "/algorithm/acmicpc-7569/",
+        "teaser": null
+      },{
+        "title": "[백준/python]16236번 아기상어 - bfs, implementation",
+        "excerpt":"BFS를 사용하는 구현 문제이다. 조건이 다양하기 때문에 주의해서 풀어야 한다. #아기 상어 (BFS, 구현) from collections import deque N = int(input()) sea = [ ] # 격자 저장 shark = [] # 상어 시작 위치 저장 for i in range(N): line = list(map(int, input().split())) sea.append(line) for j in range(N): if...","categories": ["algorithm"],
+        "tags": ["algorithm","bfs","implementation"],
+        "url": "/algorithm/acmicpc-16236/",
+        "teaser": null
+      },{
+        "title": "[백준/python/오답]1493번 박스 채우기 - divide and conquer",
+        "excerpt":"box=[] l,w,h = map(int, input().split()) N = int(input()) for i in range(N): box.append(list( map(int, input().split()) )) sol = 0 def dividing(x,y,z) : global sol if x==0 or y==0 or z==0 : return 0 for idx in range(N-1,-1,-1): num = box[idx][1] line = 2**box[idx][0] if num &gt;0 and line&lt;=min(x,y,z): box[idx][1] -=...","categories": ["algorithm"],
+        "tags": ["algorithm","divideConquer"],
+        "url": "/algorithm/acmicpc-1493/",
+        "teaser": null
+      },{
+        "title": "[백준/python]2662번 기업투자 - knapsack, dp",
+        "excerpt":"0-1 냅색 문제다. 냅색 알고리즘 유형을 분석하고 풀었더니 생각보다 쉽게 풀 수 있었다. 투자했을 때 최대 이익과 함께 각 기업에 투자한 액수를 출력해야 한다. 각 기업에 투자한 액수를 구하기 위해 dp를 모두 갱신한 뒤 다시 거꾸로 거슬러 올라가며 체크한다. N, M = map(int, input().split()) company = [[0 for _ in...","categories": ["algorithm"],
+        "tags": ["algorithm","knapsack","dp"],
+        "url": "/algorithm/acmicpc-2662/",
+        "teaser": null
+      },{
+        "title": "[백준/python]7579번 앱 - knapsack, dp",
+        "excerpt":"냅색 알고리즘에 해당 되는 문제이다. 냅색 알고리즘에는 가방에 보석을 담을 때 보석을 자를 수 없다고 가정하는 0-1 냅색 알고리즘과 자를 수 있다고 가정하는 Fractional 냅색 알고리즘이 있다. 이 문제는 0-1 냅색 알고리즘에 해당되는 문제다. 앱을 종료했을 때 최소한의 비용으로 최대한 M바이트 이상을 확보해야 한다. DP를 사용하여 앱을 종료했을 때 확보할...","categories": ["algorithm"],
+        "tags": ["algorithm","dp","knapsack"],
+        "url": "/algorithm/acmicpc-7579/",
+        "teaser": null
       }]

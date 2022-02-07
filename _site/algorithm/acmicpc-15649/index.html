@@ -491,7 +491,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-9663/" rel="permalink">[백준/python]9663번 N-queen - backtracking
+        <a href="/algorithm/acmicpc-7579/" rel="permalink">[백준/python]7579번 앱 - knapsack, dp
 </a>
       
     </h2>
@@ -503,7 +503,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time>
+        <time datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time>
       </span>
     
 
@@ -513,43 +513,7 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">백트래킹의 대표적인 예제다. 넴모넴모 문제를 풀고 풀어서 모든 격자를 방문하며 가로방향, 세로방향, 대각선 방향을 체크하는 방식의 풀이를 생각했었다. 상당히 복잡하고 시간도 오래 걸렸다. 많은 시행착오 후에 각각의 행과 열에는 오직 1개의 퀸이 올 수 있다는 것을 생각해낼 수 있었...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/algorithm/acmicpc-2580/" rel="permalink">[백준/python]2580번 스도쿠 - backtracking
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">스도쿠 문제다. 스도쿠 문제를 풀어봤다면 백트래킹으로 풀어야 된다는 생각이 자연스럽게 떠오를 것 같다.
+    <p class="archive__item-excerpt" itemprop="description">냅색 알고리즘에 해당 되는 문제이다. 냅색 알고리즘에는 가방에 보석을 담을 때 보석을 자를 수 없다고 가정하는 0-1 냅색 알고리즘과 자를 수 있다고 가정하는 Fractional 냅색 알고리즘이 있다.
 
 </p>
   </article>
@@ -565,7 +529,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-1987/" rel="permalink">[백준/python]1987번 알파벳 - backtracking
+        <a href="/algorithm/acmicpc-2662/" rel="permalink">[백준/python]2662번 기업투자 - knapsack, dp
 </a>
       
     </h2>
@@ -577,7 +541,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time>
+        <time datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time>
       </span>
     
 
@@ -587,7 +551,7 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">보드를 방문하며 해당 보드를 방문한 적이 있는지, 해당 알파벳을 이미 마주친 적 있는 지만 확인해주면 된다. DFS를 이용한 백트래킹으로 간단하게 구현했다.
+    <p class="archive__item-excerpt" itemprop="description">0-1 냅색 문제다. 냅색 알고리즘 유형을 분석하고 풀었더니 생각보다 쉽게 풀 수 있었다.
 
 </p>
   </article>
@@ -603,7 +567,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-14712/" rel="permalink">[백준/python]14712번 넴모넴모(Easy) - backtracking
+        <a href="/algorithm/acmicpc-1493/" rel="permalink">[백준/python/오답]1493번 박스 채우기 - divide and conquer
 </a>
       
     </h2>
@@ -615,7 +579,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time>
+        <time datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time>
       </span>
     
 
@@ -626,7 +590,50 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">```python
-#넴모넴모(easy) , backtraking
+box=[]
+l,w,h = map(int, input().split())
+N = int(input())
+for i in range(N):
+    box.append(list( map(int, input().split()) ))
+
+sol = 0
+def dividin...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-16236/" rel="permalink">[백준/python]16236번 아기상어 - bfs, implementation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-06T00:00:00+09:00">February 6, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">BFS를 사용하는 구현 문제이다. 조건이 다양하기 때문에 주의해서 풀어야 한다.
 
 </p>
   </article>

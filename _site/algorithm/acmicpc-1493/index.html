@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[백준/python]9663번 N-queen - backtracking - 개구리의 개발 블로그</title>
-<meta name="description" content="백트래킹의 대표적인 예제다. 넴모넴모 문제를 풀고 풀어서 모든 격자를 방문하며 가로방향, 세로방향, 대각선 방향을 체크하는 방식의 풀이를 생각했었다. 상당히 복잡하고 시간도 오래 걸렸다. 많은 시행착오 후에 각각의 행과 열에는 오직 1개의 퀸이 올 수 있다는 것을 생각해낼 수 있었다.">
+<!-- begin _includes/seo.html --><title>[백준/python/오답]1493번 박스 채우기 - divide and conquer - 개구리의 개발 블로그</title>
+<meta name="description" content="```python box=[] l,w,h = map(int, input().split()) N = int(input()) for i in range(N):     box.append(list( map(int, input().split()) ))  sol = 0 def dividing(x,y,z) :     global sol">
 
 
   <meta name="author" content="개구리">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="[백준/python]9663번 N-queen - backtracking">
-<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-9663/">
+<meta property="og:title" content="[백준/python/오답]1493번 박스 채우기 - divide and conquer">
+<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-1493/">
 
 
-  <meta property="og:description" content="백트래킹의 대표적인 예제다. 넴모넴모 문제를 풀고 풀어서 모든 격자를 방문하며 가로방향, 세로방향, 대각선 방향을 체크하는 방식의 풀이를 생각했었다. 상당히 복잡하고 시간도 오래 걸렸다. 많은 시행착오 후에 각각의 행과 열에는 오직 1개의 퀸이 올 수 있다는 것을 생각해낼 수 있었다.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-01-31T00:00:00+09:00">
+  <meta property="og:description" content="```python box=[] l,w,h = map(int, input().split()) N = int(input()) for i in range(N):     box.append(list( map(int, input().split()) ))  sol = 0 def dividing(x,y,z) :     global sol">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-02-07T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-9663/">
+
+<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-1493/">
 
 
 
@@ -275,16 +275,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[백준/python]9663번 N-queen - backtracking">
-    <meta itemprop="description" content="백트래킹의 대표적인 예제다. 넴모넴모 문제를 풀고 풀어서 모든 격자를 방문하며 가로방향, 세로방향, 대각선 방향을 체크하는 방식의 풀이를 생각했었다. 상당히 복잡하고 시간도 오래 걸렸다. 많은 시행착오 후에 각각의 행과 열에는 오직 1개의 퀸이 올 수 있다는 것을 생각해낼 수 있었다.">
-    <meta itemprop="datePublished" content="2022-01-31T00:00:00+09:00">
+    <meta itemprop="headline" content="[백준/python/오답]1493번 박스 채우기 - divide and conquer">
+    <meta itemprop="description" content="```pythonbox=[]l,w,h = map(int, input().split())N = int(input())for i in range(N):    box.append(list( map(int, input().split()) ))sol = 0def dividing(x,y,z) :    global sol">
+    <meta itemprop="datePublished" content="2022-02-07T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/algorithm/acmicpc-9663/" class="u-url" itemprop="url">[백준/python]9663번 N-queen - backtracking
+            <a href="http://localhost:4000/algorithm/acmicpc-1493/" class="u-url" itemprop="url">[백준/python/오답]1493번 박스 채우기 - divide and conquer
 </a>
           </h1>
           
@@ -295,7 +295,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time>
+        <time datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time>
       </span>
     
 
@@ -310,55 +310,47 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>백트래킹의 대표적인 예제다. 넴모넴모 문제를 풀고 풀어서 모든 격자를 방문하며 가로방향, 세로방향, 대각선 방향을 체크하는 방식의 풀이를 생각했었다. 상당히 복잡하고 시간도 오래 걸렸다. 많은 시행착오 후에 각각의 행과 열에는 오직 1개의 퀸이 올 수 있다는 것을 생각해낼 수 있었다.</p>
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">box</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">l</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">box</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span> <span class="p">))</span>
+    
+<span class="n">sol</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="nf">dividing</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">global</span> <span class="n">sol</span>    
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># N - queen
-</span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="n">chess</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="n">visited</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="n">ans</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">def</span> <span class="nf">queen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">placed</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">ans</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">z</span><span class="o">==</span><span class="mi">0</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
     
-    <span class="k">if</span> <span class="n">placed</span> <span class="o">==</span> <span class="n">N</span> <span class="p">:</span>
-        <span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
-        <span class="k">return</span> 
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">box</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">box</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            
+        <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">line</span><span class="o">&lt;=</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+            <span class="n">box</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">sol</span><span class="o">+=</span><span class="mi">1</span>
+            
+            <span class="n">tmp1</span> <span class="o">=</span> <span class="n">dividing</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="n">line</span> <span class="p">,</span><span class="n">line</span><span class="p">)</span>
+            <span class="n">tmp2</span> <span class="o">=</span> <span class="n">dividing</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">-</span><span class="n">line</span><span class="p">)</span>
+            <span class="n">tmp3</span> <span class="o">=</span> <span class="n">dividing</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">line</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+            
+            <span class="k">break</span>
+        
+        <span class="k">if</span> <span class="n">idx</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">num</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        
+    <span class="k">if</span> <span class="n">tmp1</span><span class="o">==-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">tmp2</span><span class="o">==-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">tmp3</span><span class="o">==-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
     
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">N</span> <span class="p">:</span>
-        <span class="k">return</span>
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> 
-            <span class="k">if</span> <span class="n">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-                <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">chess</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">i</span>
-                <span class="n">queen</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">placed</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-                <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">chess</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
-                
-    
-<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>   
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">chess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">continue</span>
-        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="nb">abs</span><span class="p">(</span><span class="n">idx</span><span class="o">-</span><span class="n">chess</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-    
-    <span class="k">return</span> <span class="bp">True</span>
-
-<span class="n">queen</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sol</span>    
+        
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">dividing</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>각 열에 한 개의 queen이 올 수 있다는 점을 이용해 chess 배열과 visited 배열을 만들었다.</p>
-
-<h3 id="구현">구현</h3>
-<ol>
-  <li>chess 배열에는 각 행의 퀸이 몇 번째 열에 위치하는 지 표시한다. 예를 들어 chess[1]=3 일 경우 1번 열 3번 행에 퀸이 위치한 것이다.</li>
-  <li>visited 배열에는 각 행의 퀸이 사용되었는 지를 표시한다. 굳이 visited 배열을 더 만들 필요 없이 chess 배열만으로도 문제를 풀 수 있지만 쉽게 이해하기 위해 다음과 같이 풀었다.</li>
-  <li>백트래킹을 하며 각 행에 퀸을 하나씩 추가한다. 이 때 열을 기준으로 보면 마찬가지로 한 개의 퀸이 올 수 있다. 퀸을 추가하기 전 check 함수를 통해 해당 칸에 퀸을 넣을 수 있는 지 확인한다.</li>
-  <li>check 함수에서는 abs를 통해 대각선을 확인하고 chess 배열을 확인하여 해당 열에 퀸이 있는 지 확인한다.</li>
-</ol>
-
-<p>N번 행까지 모두 퀸을 놓으면 경우의 수에 1을 추가한다.</p>
+<p><strong>분할 정복으로 풀었지만 메모리 초과 혹은 재귀 깊이 때문에 통과가 안된다.
+혹시 파이썬으로 푸신 분 있으시면 댓글로 조언 부탁 드리겠습니다.</strong></p>
 
         
       </section>
@@ -377,9 +369,7 @@
     
       <a href="/tags/#algorithm" class="page__taxonomy-item p-category" rel="tag">algorithm</a><span class="sep">, </span>
     
-      <a href="/tags/#backtracking" class="page__taxonomy-item p-category" rel="tag">backtracking</a><span class="sep">, </span>
-    
-      <a href="/tags/#dfs" class="page__taxonomy-item p-category" rel="tag">dfs</a>
+      <a href="/tags/#divideconquer" class="page__taxonomy-item p-category" rel="tag">divideConquer</a>
     
     </span>
   </p>
@@ -404,7 +394,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-31T00:00:00+09:00">January 31, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time></p>
 
       </footer>
 
@@ -413,11 +403,11 @@
       
   <nav class="pagination">
     
-      <a href="/algorithm/acmicpc-2580/" class="pagination--pager" title="[백준/python]2580번 스도쿠 - backtracking
+      <a href="/algorithm/acmicpc-16236/" class="pagination--pager" title="[백준/python]16236번 아기상어 - bfs, implementation
 ">이전</a>
     
     
-      <a href="/algorithm/acmicpc-7569/" class="pagination--pager" title="[백준/python]7569번 토마토 - bfs
+      <a href="/algorithm/acmicpc-2662/" class="pagination--pager" title="[백준/python]2662번 기업투자 - knapsack, dp
 ">다음</a>
     
   </nav>
@@ -518,50 +508,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/algorithm/acmicpc-1493/" rel="permalink">[백준/python/오답]1493번 박스 채우기 - divide and conquer
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">```python
-box=[]
-l,w,h = map(int, input().split())
-N = int(input())
-for i in range(N):
-    box.append(list( map(int, input().split()) ))
-
-sol = 0
-def dividin...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/algorithm/acmicpc-16236/" rel="permalink">[백준/python]16236번 아기상어 - bfs, implementation
 </a>
       
@@ -585,6 +531,44 @@ def dividin...</p>
 
 
     <p class="archive__item-excerpt" itemprop="description">BFS를 사용하는 구현 문제이다. 조건이 다양하기 때문에 주의해서 풀어야 한다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-7569/" rel="permalink">[백준/python]7569번 토마토 - bfs
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-01T00:00:00+09:00">February 1, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">3차원 그래프 문제다. 이미 익은 토마토를 기준으로 BFS를 실행하면서 총 소요되는 시간을 더해준다.
 
 </p>
   </article>
