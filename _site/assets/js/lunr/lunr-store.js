@@ -83,10 +83,10 @@ var store = [{
         "url": "/algorithm/acmicpc-15649/",
         "teaser": null
       },{
-        "title": "[OS]Operating System Concepts - 공룡책 개념 정리(1)",
-        "excerpt":"A stored-program computer stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터 program - set of instructions Operating System Operating System is a software that manages a computer’s hardware. provides a basis for application progrmas acts as an intermediary(중개인) between the computer user and the computer hardware...","categories": ["cs"],
-        "tags": ["cs","os"],
-        "url": "/cs/dinosaur-os-1/",
+        "title": null,
+        "excerpt":"A stored-program computer stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터 program - set of instructions Operating System Operating System is a software that manages a computer’s hardware. provides a basis for application progrmas acts as an intermediary(중개인) between the computer user and the computer hardware...","categories": [],
+        "tags": null,
+        "url": "/2022-01-26-dinosaur-os-1/",
         "teaser": null
       },{
         "title": "[백준/python]14712번 넴모넴모(Easy) - backtracking",
@@ -159,5 +159,11 @@ var store = [{
         "excerpt":"stack에 I가 등장하면 인덱스를 push하고 stack의 원소의 차이가 2이상이면 답을 늘려가는 방식으로 풀 수 있다. 그러나 문자열 문제이기 때문에 split을 사용하는 방식으로 풀어보았다. 풀이 I를 기준으로 split하여 입력값을 받는다. 입력된 배열을 탐색하며 연속하는 ‘O’의 개수를 계산한다. ‘O’가 아닌 값이 등장하거나 배열의 마지막 인덱스에 도착하면 총 몇 개의 Pn이 만들어지는 지...","categories": ["algorithm"],
         "tags": ["string","algorithm"],
         "url": "/algorithm/acmicpc-5525/",
+        "teaser": null
+      },{
+        "title": null,
+        "excerpt":"이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다. Operating-System Structures 1. Operating-System Services An operating system provides an environment for the execution of programs. User interface 대부분의 운영체제는 UI를 갖고 있다. 인터페이스는 I/O를 지시하고 메뉴에서 선택하고 텍스트를 입력하는 등의 역할을 하는 시스템이다. 인터페이스는 다양한 형태를 가질 수 있으며...","categories": [],
+        "tags": null,
+        "url": "/2022-02-10-dinosaur-os-2/",
         "teaser": null
       }]
