@@ -9,28 +9,32 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>개구리의 개발 블로그</title>
-<meta name="description" content="CS 및 서버 개발 공부">
+<!-- begin _includes/seo.html --><title>[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2) - 개구리의 개발 블로그</title>
+<meta name="description" content="Chapter2. 운영체제 구조">
 
 
   <meta name="author" content="개구리">
   
+  <meta property="article:author" content="개구리">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="개구리의 개발 블로그">
-<meta property="og:url" content="http://localhost:4000/2022-02-10-dinosaur-os-2/">
+<meta property="og:title" content="[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2)">
+<meta property="og:url" content="http://localhost:4000/cs/dinosaur-os-2/">
 
 
-  <meta property="og:description" content="CS 및 서버 개발 공부">
-
-
-
+  <meta property="og:description" content="Chapter2. 운영체제 구조">
 
 
 
+
+
+
+
+  <meta property="article:published_time" content="2022-02-10T00:00:00+09:00">
 
 
 
@@ -41,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/2022-02-10-dinosaur-os-2/">
+<link rel="canonical" href="http://localhost:4000/cs/dinosaur-os-2/">
 
 
 
@@ -271,18 +275,28 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <meta itemprop="description" content="">
-    
+    <meta itemprop="headline" content="[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2)">
+    <meta itemprop="description" content="Chapter2. 운영체제 구조">
+    <meta itemprop="datePublished" content="2022-02-10T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/cs/dinosaur-os-2/" class="u-url" itemprop="url">[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2)
+</a>
+          </h1>
           
 
   <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-10T00:00:00+09:00">February 10, 2022</time>
+      </span>
     
 
     
@@ -295,6 +309,14 @@
       
 
       <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#operating-system-structures">Operating-System Structures</a><ul><li><a href="#1-operating-system-services">1. Operating-System Services</a></li><li><a href="#2-system-calls">2. System Calls</a><ul><li><a href="#application-programming-interface">Application Programming Interface</a></li><li><a href="#types-of-system-calls">Types of System Calls</a></li></ul></li><li><a href="#3-system-services">3. System Services</a></li><li><a href="#4-linkers-and-loaders">4. Linkers and Loaders</a></li><li><a href="#5-why-applications-are-operating-system-specific">5. Why Applications Are Operating-System Specific</a></li><li><a href="#6-operating-system-structures">6. Operating System Structures</a><ul><li><a href="#61-모놀리식-구조-monolithic-strcuture">6.1 모놀리식 구조 (Monolithic Strcuture)</a></li><li><a href="#62-계층적-접근-layered-approach">6.2 계층적 접근 (Layered Approach)</a></li><li><a href="#63-마이크로커널-microkernels">6.3 마이크로커널 (MicroKernels)</a></li><li><a href="#64-모듈-modules">6.4 모듈 (Modules)</a></li><li><a href="#65-하이브리드-시스템-hybrid-systems">6.5 하이브리드 시스템 (Hybrid Systems)</a></li></ul></li><li><a href="#7-building-and-booting-an-operating-system">7. Building and Booting an Operating System</a><ul><li><a href="#71-운영체제-생성">7.1 운영체제 생성</a></li><li><a href="#72-시스템-부트">7.2 시스템 부트</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
         
         <p>이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다.</p>
 
@@ -603,9 +625,43 @@
       <footer class="page__meta">
         
         
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#cs" class="page__taxonomy-item p-category" rel="tag">cs</a><span class="sep">, </span>
+    
+      <a href="/tags/#os" class="page__taxonomy-item p-category" rel="tag">os</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#cs" class="page__taxonomy-item p-category" rel="tag">cs</a>
+    
+    </span>
+  </p>
 
 
         
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-02-10T00:00:00+09:00">February 10, 2022</time></p>
 
       </footer>
 

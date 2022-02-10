@@ -1,13 +1,13 @@
 ---
 title: "[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(1)"
-excerpt: "Chapter1. 서론".
+excerpt: "Chapter1. 서론"
 tags:
 - cs
 - os
 categories:
 - cs
 toc: true
-# toc_sticky: true
+toc_sticky: false
 ---
 
 ## A stored-program computer

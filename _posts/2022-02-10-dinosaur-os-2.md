@@ -1,6 +1,6 @@
 ---
 title: "[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2)"
-excerpt: "Chapter2. 운영체제 구조".
+excerpt: "Chapter2. 운영체제 구조"
 tags:
 - cs
 - os

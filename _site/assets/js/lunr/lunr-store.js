@@ -83,10 +83,10 @@ var store = [{
         "url": "/algorithm/acmicpc-15649/",
         "teaser": null
       },{
-        "title": null,
-        "excerpt":"A stored-program computer stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터 program - set of instructions Operating System Operating System is a software that manages a computer’s hardware. provides a basis for application progrmas acts as an intermediary(중개인) between the computer user and the computer hardware...","categories": [],
-        "tags": null,
-        "url": "/2022-01-26-dinosaur-os-1/",
+        "title": "[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(1)",
+        "excerpt":"A stored-program computer stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터 program - set of instructions Operating System Operating System is a software that manages a computer’s hardware. provides a basis for application progrmas acts as an intermediary(중개인) between the computer user and the computer hardware...","categories": ["cs"],
+        "tags": ["cs","os"],
+        "url": "/cs/dinosaur-os-1/",
         "teaser": null
       },{
         "title": "[백준/python]14712번 넴모넴모(Easy) - backtracking",
@@ -161,9 +161,9 @@ var store = [{
         "url": "/algorithm/acmicpc-5525/",
         "teaser": null
       },{
-        "title": null,
-        "excerpt":"이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다. Operating-System Structures 1. Operating-System Services An operating system provides an environment for the execution of programs. User interface 대부분의 운영체제는 UI를 갖고 있다. 인터페이스는 I/O를 지시하고 메뉴에서 선택하고 텍스트를 입력하는 등의 역할을 하는 시스템이다. 인터페이스는 다양한 형태를 가질 수 있으며...","categories": [],
-        "tags": null,
-        "url": "/2022-02-10-dinosaur-os-2/",
+        "title": "[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2)",
+        "excerpt":"이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다. Operating-System Structures 1. Operating-System Services An operating system provides an environment for the execution of programs. User interface 대부분의 운영체제는 UI를 갖고 있다. 인터페이스는 I/O를 지시하고 메뉴에서 선택하고 텍스트를 입력하는 등의 역할을 하는 시스템이다. 인터페이스는 다양한 형태를 가질 수 있으며...","categories": ["cs"],
+        "tags": ["cs","os"],
+        "url": "/cs/dinosaur-os-2/",
         "teaser": null
       }]
