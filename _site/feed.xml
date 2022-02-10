@@ -5,13 +5,19 @@
     <description>CS 및 서버 개발 공부</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Feb 2022 23:42:50 +0900</pubDate>
-    <lastBuildDate>Thu, 10 Feb 2022 23:42:50 +0900</lastBuildDate>
+    <pubDate>Thu, 10 Feb 2022 23:53:56 +0900</pubDate>
+    <lastBuildDate>Thu, 10 Feb 2022 23:53:56 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
         <title>[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2)</title>
-        <description>&lt;p&gt;이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다.&lt;/p&gt;
+        <description>&lt;h4 id=&quot;공룡책-개념정리-&quot;&gt;**공룡책 개념정리 **&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gudals113.github.io/cs/dinosaur-os-1/&quot;&gt;공룡책 개념정리(1) - Ch.1 서론&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;operating-system-structures&quot;&gt;Operating-System Structures&lt;/h1&gt;
 
@@ -1358,7 +1364,11 @@
     
       <item>
         <title>[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(1)</title>
-        <description>&lt;h2 id=&quot;a-stored-program-computer&quot;&gt;A stored-program computer&lt;/h2&gt;
+        <description>&lt;h4 id=&quot;공룡책-개념정리-&quot;&gt;**공룡책 개념정리 **&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gudals113.github.io/cs/dinosaur-os-2/&quot;&gt;공룡책 개념정리(2) - Ch.2 운영체제 구조&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;a-stored-program-computer&quot;&gt;A stored-program computer&lt;/h2&gt;
 
 &lt;p&gt;stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터&lt;/p&gt;
 

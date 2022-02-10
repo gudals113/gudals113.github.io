@@ -1,6 +1,6 @@
 ---
 title: "[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(1)"
-excerpt: "Chapter1. 서론"
+excerpt: Chapter1. 서론
 tags:
 - cs
 - os
@@ -9,6 +9,10 @@ categories:
 toc: true
 toc_sticky: false
 ---
+
+#### **공룡책 개념정리 **
+
+[공룡책 개념정리(2) - Ch.2 운영체제 구조](https://gudals113.github.io/cs/dinosaur-os-2/)
 
 ## A stored-program computer
 
