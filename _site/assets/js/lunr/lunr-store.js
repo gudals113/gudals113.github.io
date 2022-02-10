@@ -36,8 +36,8 @@ var store = [{
         "teaser": null
       },{
         "title": "비트코인 트레이딩 봇 만들기(0)- python, Upbit API",
-        "excerpt":"얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다. SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다. https://www.youtube.com/watch?v=0dA1Pldtbxw 자, 드가자. python 모듈인 pyupbit를 사용하기 전 우선 API를 익혀보는 글이다....","categories": ["dev"],
-        "tags": ["python","api"],
+        "excerpt":"얼마전 유튜브를 보는데 홍준표 국민의힘 대선 경선 후보가 SNL에 나와서 인기를 얻었다. 조회수 200만이 넘었다. SNL에서도 냄새를 맡았는지 정치인들이 계속해서 출연하고 있다. 이번에는 이준석 국민의힘 당대표가 나왔다. 비트코인 얘기를 하는데 자동투자로 선거 세네 번 치를 비용을 얻었다고 말했다. 돈 벌러 가자. https://www.youtube.com/watch?v=0dA1Pldtbxw Upbit API를 간단하게 알아보는 글이다. pyupbit를 활용한 매매는...","categories": ["dev"],
+        "tags": ["python","upbit"],
         "url": "/dev/upbit-trading-bot-0/",
         "teaser": null
       },{
@@ -141,5 +141,23 @@ var store = [{
         "excerpt":"냅색 알고리즘에 해당 되는 문제이다. 냅색 알고리즘에는 가방에 보석을 담을 때 보석을 자를 수 없다고 가정하는 0-1 냅색 알고리즘과 자를 수 있다고 가정하는 Fractional 냅색 알고리즘이 있다. 이 문제는 0-1 냅색 알고리즘에 해당되는 문제다. 앱을 종료했을 때 최소한의 비용으로 최대한 M바이트 이상을 확보해야 한다. DP를 사용하여 앱을 종료했을 때 확보할...","categories": ["algorithm"],
         "tags": ["algorithm","dp","knapsack"],
         "url": "/algorithm/acmicpc-7579/",
+        "teaser": null
+      },{
+        "title": "비트코인 트레이딩 봇 만들기(1)- pyupbit, 잔고 조회 및 백테스트",
+        "excerpt":"지난 글에서는 Upbit API 공식 문서에서 잔고와 마켓에 대한 정보를 불러오는 법을 알아봤다. 이번 글에서 부터는 python 라이브러리인 pyupbit를 통해 더욱 쉽고 간편하게 다양한 정보와 자동 매매를 위한 코드를 작성해보자. pyupbit 라이브러리 사용하기 1. pyupbit 라이브러리 설치 및 사용 pip install pyupbit 2. 라이브러리 이용하여 잔고 및 티커 불러오기 https://github.com/sharebook-kr/pyupbit...","categories": ["dev"],
+        "tags": ["upbit","python"],
+        "url": "/dev/upbit-trading-bot-1/",
+        "teaser": null
+      },{
+        "title": "비트코인 트레이딩 봇 만들기(2) - pyupbit, 로컬 환경에서 자동 매매",
+        "excerpt":"자동매매 실행하기 1. 로컬 환경에서 실행 클라우드에서 24시간 자동 매매를 실행하기 전 로컬 환경에서 테스트를 해보자. # main.py import os import pyupbit import time, datetime import pandas as pd import numpy as np ACCESS_KEY = os.environ['ACCESS_KEY'] SECRET_KEY = os.environ['SECRET_KEY'] upbit=pyupbit.Upbit(ACCESS_KEY, SECRET_KEY) #K 30일마다 갱신해주자 def GET_TARGET_PRICE(K): df = pyupbit.get_ohlcv(\"KRW-BTC\", count=2)...","categories": ["dev"],
+        "tags": ["python","upbit"],
+        "url": "/dev/upbit-trading-bot-2/",
+        "teaser": null
+      },{
+        "title": "[백준/python]5525번 IOI - string",
+        "excerpt":"stack에 I가 등장하면 인덱스를 push하고 stack의 원소의 차이가 2이상이면 답을 늘려가는 방식으로 풀 수 있다. 그러나 문자열 문제이기 때문에 split을 사용하는 방식으로 풀어보았다. 풀이 I를 기준으로 split하여 입력값을 받는다. 입력된 배열을 탐색하며 연속하는 ‘O’의 개수를 계산한다. ‘O’가 아닌 값이 등장하거나 배열의 마지막 인덱스에 도착하면 총 몇 개의 Pn이 만들어지는 지...","categories": ["algorithm"],
+        "tags": ["string","algorithm"],
+        "url": "/algorithm/acmicpc-5525/",
         "teaser": null
       }]

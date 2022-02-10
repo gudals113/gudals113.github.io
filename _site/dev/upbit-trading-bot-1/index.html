@@ -1,0 +1,717 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>비트코인 트레이딩 봇 만들기(1)- pyupbit, 잔고 조회 및 백테스트 - 개구리의 개발 블로그</title>
+<meta name="description" content="지난 글에서는 Upbit API 공식 문서에서 잔고와 마켓에 대한 정보를 불러오는 법을 알아봤다. 이번 글에서 부터는 python 라이브러리인 pyupbit를 통해 더욱 쉽고 간편하게 다양한 정보와 자동 매매를 위한 코드를 작성해보자. pyupbit 라이브러리 사용하기">
+
+
+  <meta name="author" content="개구리">
+  
+  <meta property="article:author" content="개구리">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개구리의 개발 블로그">
+<meta property="og:title" content="비트코인 트레이딩 봇 만들기(1)- pyupbit, 잔고 조회 및 백테스트">
+<meta property="og:url" content="http://localhost:4000/dev/upbit-trading-bot-1/">
+
+
+  <meta property="og:description" content="지난 글에서는 Upbit API 공식 문서에서 잔고와 마켓에 대한 정보를 불러오는 법을 알아봤다. 이번 글에서 부터는 python 라이브러리인 pyupbit를 통해 더욱 쉽고 간편하게 다양한 정보와 자동 매매를 위한 코드를 작성해보자. pyupbit 라이브러리 사용하기">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-02-08T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/dev/upbit-trading-bot-1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "개구리",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 개발 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon_package_v0.16/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_package_v0.16/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_package_v0.16/favicon-16x16.png">
+<link rel="manifest" href="/favicon_package_v0.16/site.webmanifest">
+<link rel="mask-icon" href="/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 개발 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/avatar.jpg" alt="개구리" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">개구리</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>우물 안 개구리</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailtog:gudals113@email.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gudals113" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/dogoyster2/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="비트코인 트레이딩 봇 만들기(1)- pyupbit, 잔고 조회 및 백테스트">
+    <meta itemprop="description" content="지난 글에서는 Upbit API 공식 문서에서 잔고와 마켓에 대한 정보를 불러오는 법을 알아봤다. 이번 글에서 부터는 python 라이브러리인 pyupbit를 통해 더욱 쉽고 간편하게 다양한 정보와 자동 매매를 위한 코드를 작성해보자.pyupbit 라이브러리 사용하기">
+    <meta itemprop="datePublished" content="2022-02-08T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/dev/upbit-trading-bot-1/" class="u-url" itemprop="url">비트코인 트레이딩 봇 만들기(1)- pyupbit, 잔고 조회 및 백테스트
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-08T00:00:00+09:00">February 8, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>지난 글에서는 Upbit API 공식 문서에서 잔고와 마켓에 대한 정보를 불러오는 법을 알아봤다. 이번 글에서 부터는 python 라이브러리인 pyupbit를 통해 더욱 쉽고 간편하게 다양한 정보와 자동 매매를 위한 코드를 작성해보자.</p>
+<h1 id="pyupbit-라이브러리-사용하기">pyupbit 라이브러리 사용하기</h1>
+
+<h2 id="1-pyupbit-라이브러리-설치-및-사용">1. pyupbit 라이브러리 설치 및 사용</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>pyupbit
+</code></pre></div></div>
+
+<h2 id="2-라이브러리-이용하여-잔고-및-티커-불러오기">2. 라이브러리 이용하여 잔고 및 티커 불러오기</h2>
+
+<p><a href="https://github.com/sharebook-kr/pyupbit">https://github.com/sharebook-kr/pyupbit</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># main.py
+# market.py, account.py 등 필요없다.
+</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pyupbit</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'ACCESS_KEY'</span><span class="p">]</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span>
+<span class="n">upbit</span><span class="o">=</span><span class="n">pyupbit</span><span class="p">.</span><span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+
+<span class="c1">#전체잔고
+</span><span class="n">BALANCE</span> <span class="o">=</span> <span class="n">upbit</span><span class="p">.</span><span class="n">get_balances</span><span class="p">()</span>
+<span class="c1">#원화 잔고
+</span><span class="n">KRW_BALANCE</span> <span class="o">=</span> <span class="n">upbit</span><span class="p">.</span><span class="n">get_balance</span><span class="p">(</span><span class="s">'KRW'</span><span class="p">)</span>
+<span class="c1">#비트코인 잔고
+</span><span class="n">BTC_BALANCE</span> <span class="o">=</span> <span class="n">upbit</span><span class="p">.</span><span class="n">get_balance</span><span class="p">(</span><span class="s">'BTC'</span><span class="p">)</span>
+
+<span class="c1">#원화 마켓 티커
+</span><span class="n">krw_tickers</span> <span class="o">=</span> <span class="n">pyupbit</span><span class="p">.</span><span class="n">get_tickers</span><span class="p">(</span><span class="s">"KRW"</span><span class="p">)</span>
+
+<span class="c1">#print(BALANCE)
+</span></code></pre></div></div>
+
+<p>비트코인 트레이딩 봇 만들기(0)에서 사용했던 Upbit API를 사용하지 않고 잔고와 마켓 정보를 불러올 수 있다.</p>
+
+<p>마찬가지로 os.environ 내장 함수를 통해 env파일에 적어둔 access key와 secret key를 불러온다.</p>
+
+<h1 id="매수-전략-설정하기">매수 전략 설정하기</h1>
+
+<p>가장 유명한 변동성 돌파 전략을 사용해보자.</p>
+
+<p>해당 전략은 어제의 고가와 저가의 변동폭의 K배만큼 상승(오늘 시가 기준)이 발생하면 매수를 진행한다.</p>
+
+<p>이를 위해 우리는 24시간 운영되는 비트코인 시장에서 어제와 오늘의 기준을 설정하고 고가와 저가의 변동폭, 그리고 백테스트를 통해 적절한 K를 구해야한다.</p>
+
+<h2 id="1-backtest">1. backtest</h2>
+
+<p>현재 매수 전략을 과거에 실행했을 때 수익률을 알아보자. 과거의 데이터를 통해 미래를 보장할 수는 과거의 가격 변동 추세와 현재의 그래프를 비교하여 수익률을 대략적으로 예측할 수 있을 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># backtest.py
+</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pyupbit</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">GET_ROR</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pyupbit</span><span class="p">.</span><span class="n">get_ohlcv</span><span class="p">(</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+    
+    <span class="n">df</span><span class="p">[</span><span class="s">'range'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'high'</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s">'low'</span><span class="p">])</span> <span class="o">*</span> <span class="n">K</span>
+    <span class="n">df</span><span class="p">[</span><span class="s">'target'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'open'</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s">'range'</span><span class="p">].</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">tax</span><span class="o">=</span><span class="mf">0.0005</span>
+    
+    <span class="n">df</span><span class="p">[</span><span class="s">'ror'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'high'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s">'target'</span><span class="p">],</span>
+                        <span class="p">(</span> <span class="n">df</span><span class="p">[</span><span class="s">'close'</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">tax</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">df</span><span class="p">[</span><span class="s">'target'</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">tax</span><span class="p">)</span> <span class="p">),</span>
+                        <span class="mi">1</span>
+                        <span class="p">)</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s">'hpr'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'ror'</span><span class="p">].</span><span class="n">cumprod</span><span class="p">()</span>
+    
+    
+    <span class="c1"># print(df)
+</span>    <span class="k">return</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'hpr'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">):</span>
+    <span class="n">ROR</span><span class="o">=</span><span class="n">GET_ROR</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ROR</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>pyupbit의 get_ohlcv 함수를 이용한다. OHLCV란 Open, High, Low, Close, Volume의 앞글자로 시가, 고가, 저가, 종가, 거래량에 대한 정보를 데이터프레임 형태로 반환해준다. 데이터프레임은 파이썬 라이브러리인 pandas에서 사용되는 데이터 형태이다.</li>
+  <li>df에 30일 동안 ohlcv 정보를 저장한다. df는 데이터프레임 형태이기 때문에 새로운 변수를 선언만 하면 바로 추가할 수 있다.</li>
+  <li>‘range’에 고가와 저가의 차에 K를 곱한 값을 저장하여 df에 추가한다.</li>
+  <li>‘target’은 우리가 매수하고자 하는 목표가이다. 금일의 시가에 전날 구한 range를 더한 것이 목표가이기 때문에 range를 shift(1)을 통해 1일만큼 미루고 시가 (df[’open’])를 더한다.</li>
+  <li>업비트는 매수할 때와 매도할 때 모두 0.05%의 수수료가 존재한다.</li>
+  <li>np.where은 넘파이에서 조건에 맞는 값을 찾아주는 함수이다. 당일의 고가가 목표가 보다 높을 때 매도를 하기 때문에 해당 조건에 맞는 날에만 수익률을 계산한다.</li>
+  <li>cumprod() 함수는 numpy에서 누적곱을 구할 때 사용된다. hpr에는 수익률의 누적곱이 저장된다. 가장 마지막 날의 누적곱이 30일간 수익률이다.</li>
+</ol>
+
+<p><strong>for 문을 통해 K값을 바꾸어 가며 과거에 최대 수익률을 낼 수 있었던 K값을 찾을 수 있다.</strong></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a><span class="sep">, </span>
+    
+      <a href="/tags/#upbit" class="page__taxonomy-item p-category" rel="tag">upbit</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#dev" class="page__taxonomy-item p-category" rel="tag">dev</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-02-08T00:00:00+09:00">February 8, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/algorithm/acmicpc-7579/" class="pagination--pager" title="[백준/python]7579번 앱 - knapsack, dp
+">이전</a>
+    
+    
+      <a href="/dev/upbit-trading-bot-2/" class="pagination--pager" title="비트코인 트레이딩 봇 만들기(2) - pyupbit, 로컬 환경에서 자동 매매
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-5525/" rel="permalink">[백준/python]5525번 IOI - string
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-10T00:00:00+09:00">February 10, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">stack에 I가 등장하면 인덱스를 push하고 stack의 원소의 차이가 2이상이면 답을 늘려가는 방식으로 풀 수 있다. 그러나 문자열 문제이기 때문에 split을 사용하는 방식으로 풀어보았다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/dev/upbit-trading-bot-2/" rel="permalink">비트코인 트레이딩 봇 만들기(2) - pyupbit, 로컬 환경에서 자동 매매
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-09T00:00:00+09:00">February 9, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">자동매매 실행하기
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-7579/" rel="permalink">[백준/python]7579번 앱 - knapsack, dp
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">냅색 알고리즘에 해당 되는 문제이다. 냅색 알고리즘에는 가방에 보석을 담을 때 보석을 자를 수 없다고 가정하는 0-1 냅색 알고리즘과 자를 수 있다고 가정하는 Fractional 냅색 알고리즘이 있다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-2662/" rel="permalink">[백준/python]2662번 기업투자 - knapsack, dp
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-07T00:00:00+09:00">February 7, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">0-1 냅색 문제다. 냅색 알고리즘 유형을 분석하고 풀었더니 생각보다 쉽게 풀 수 있었다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/gudals113" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 개구리. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'gudals113/gitpages-comments');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', 'comment')
+    script.setAttribute('theme', 'gruvbox-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>
