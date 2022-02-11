@@ -7,13 +7,8 @@ tags:
 categories:
 - cs
 toc: true
-toc_sticky: false
+toc_sticky: true
 ---
-
-#### **공룡책 개념정리 **
-
-[공룡책 개념정리(1) - Ch.1 서론](https://gudals113.github.io/cs/dinosaur-os-1/)
-
 
 > 이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다.
 
@@ -222,4 +217,9 @@ When a program name is entered on the command line on UNIX systems— for exampl
 - 진단에 통과하게 되면 CPU 레지스터에서 장치 컨트롤러 및 메인 메모리의 내용까지 시스템의 모든 측면을 초기화(initialize) 할 수 있다.
 - 운영체제가 시작되고 루트 파일 시스템을 마운트 한다. **이 시점에서 시스템은 실행 중(running)이라고 할 수 있다.**
 
-**출처 - <Operating System Concepts> 10th ed. by A. Silberschatz**
+> 출처 - <Operating System Concepts> 10th ed. by A. Silberschatz
+
+#### 공룡책 개념정리 
+
+[공룡책 개념정리(1) - Ch.1 서론](https://gudals113.github.io/cs/dinosaur-os-1/)
+

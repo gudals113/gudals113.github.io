@@ -5,17 +5,13 @@
     <description>CS 및 서버 개발 공부</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Feb 2022 23:53:56 +0900</pubDate>
-    <lastBuildDate>Thu, 10 Feb 2022 23:53:56 +0900</lastBuildDate>
+    <pubDate>Fri, 11 Feb 2022 11:28:47 +0900</pubDate>
+    <lastBuildDate>Fri, 11 Feb 2022 11:28:47 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
         <title>[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(2)</title>
-        <description>&lt;h4 id=&quot;공룡책-개념정리-&quot;&gt;**공룡책 개념정리 **&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://gudals113.github.io/cs/dinosaur-os-1/&quot;&gt;공룡책 개념정리(1) - Ch.1 서론&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
+        <description>&lt;blockquote&gt;
   &lt;p&gt;이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -316,7 +312,14 @@
   &lt;li&gt;운영체제가 시작되고 루트 파일 시스템을 마운트 한다. &lt;strong&gt;이 시점에서 시스템은 실행 중(running)이라고 할 수 있다.&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;**출처 - &lt;Operating System=&quot;&quot; Concepts=&quot;&quot;&gt; 10th ed. by A. Silberschatz**&lt;/Operating&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;출처 - &lt;Operating System=&quot;&quot; Concepts=&quot;&quot;&gt; 10th ed. by A. Silberschatz&lt;/Operating&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;공룡책-개념정리&quot;&gt;공룡책 개념정리&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gudals113.github.io/cs/dinosaur-os-1/&quot;&gt;공룡책 개념정리(1) - Ch.1 서론&lt;/a&gt;&lt;/p&gt;
+
 </description>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
         <link>http://localhost:4000//cs/dinosaur-os-2/</link>
@@ -1364,10 +1367,7 @@
     
       <item>
         <title>[운영체제/OS]Operating System Concepts - 공룡책 개념 정리(1)</title>
-        <description>&lt;h4 id=&quot;공룡책-개념정리-&quot;&gt;**공룡책 개념정리 **&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://gudals113.github.io/cs/dinosaur-os-2/&quot;&gt;공룡책 개념정리(2) - Ch.2 운영체제 구조&lt;/a&gt;&lt;/p&gt;
-
+        <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 &lt;h2 id=&quot;a-stored-program-computer&quot;&gt;A stored-program computer&lt;/h2&gt;
 
 &lt;p&gt;stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터&lt;/p&gt;
@@ -1535,9 +1535,13 @@ intimately involved with the hardware. In this context, we can view an operating
 
 &lt;p&gt;&lt;strong&gt;멀티태스킹은 멀티프로그래밍의 확장된 개념이다. 멀티태스킹은 CPU가 여러 프로세스를 switching 하며 실행하지만 더 자주 switch가 일어난다.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;참고 자료&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;출처 - &lt;Operating System=&quot;&quot; Concepts=&quot;&quot;&gt; 10th ed. by A. Silberschatz&lt;/Operating&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Operating System Concepts - 10th ed. by A. Silberschatz&lt;/p&gt;
+&lt;h4 id=&quot;공룡책-개념정리&quot;&gt;공룡책 개념정리&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gudals113.github.io/cs/dinosaur-os-2/&quot;&gt;공룡책 개념정리(2) - Ch.2 운영체제 구조&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 Jan 2022 00:00:00 +0900</pubDate>
         <link>http://localhost:4000//cs/dinosaur-os-1/</link>

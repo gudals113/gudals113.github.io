@@ -7,13 +7,10 @@ tags:
 categories:
 - cs
 toc: true
-toc_sticky: false
+toc_sticky: true
 ---
 
-#### **공룡책 개념정리 **
-
-[공룡책 개념정리(2) - Ch.2 운영체제 구조](https://gudals113.github.io/cs/dinosaur-os-2/)
-
+# Introduction
 ## A stored-program computer
 
 stored program computer - 폰 노이만이 개발한 memory에 progrmas 저장하는 형태의 컴퓨터
@@ -177,6 +174,8 @@ Multitasking is a logical extension of multiprogramming. In multitasking systems
 
 **멀티태스킹은 멀티프로그래밍의 확장된 개념이다. 멀티태스킹은 CPU가 여러 프로세스를 switching 하며 실행하지만 더 자주 switch가 일어난다.**
 
-참고 자료
+> 출처 - <Operating System Concepts> 10th ed. by A. Silberschatz
 
-Operating System Concepts - 10th ed. by A. Silberschatz
+#### 공룡책 개념정리 
+
+[공룡책 개념정리(2) - Ch.2 운영체제 구조](https://gudals113.github.io/cs/dinosaur-os-2/)
