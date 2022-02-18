@@ -1,6 +1,6 @@
 var store = [{
         "title": "안녕하세요 개구리입니다.",
-        "excerpt":"안녕하세요. 노션에 정리해가며 공부를 했었는데 올해부터는 블로그에 정리를 하려고 합니다. 글이 많아지면 방문하시는 분들도 생기겠죠. 잘 부탁드립니다. 궁금하신 점이나 제 글에 오류가 있다면 알려주세요.  ","categories": ["life"],
+        "excerpt":"안녕하세요.  노션에 정리해가며 공부를 했었는데 올해부터는 블로그에 정리를 하려고 합니다.  글이 많아지면 방문하시는 분들도 생기겠죠.  잘 부탁드립니다.  궁금하신 점이나 제 글에 오류가 있다면 알려주세요.  ","categories": ["life"],
         "tags": ["life"],
         "url": "/life/introduce/",
         "teaser": null
@@ -165,5 +165,35 @@ var store = [{
         "excerpt":"이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다. Operating-System Structures 1. Operating-System Services An operating system provides an environment for the execution of programs. User interface 대부분의 운영체제는 UI를 갖고 있다. 인터페이스는 I/O를 지시하고 메뉴에서 선택하고 텍스트를 입력하는 등의 역할을 하는 시스템이다. 인터페이스는 다양한 형태를 가질 수 있으며...","categories": ["cs"],
         "tags": ["cs","os"],
         "url": "/cs/dinosaur-os-2/",
+        "teaser": null
+      },{
+        "title": "[백준/python]1254번 팰린드롬 만들기 - string",
+        "excerpt":"python 문자열 문자열 거꾸로 출력하기 반복문을 통해 새로운 문자열을 만드는 방법 외에 ‘pythonic’한 방법을 알아보자. .reverse() 함수 이용하기 - 문자열을 리스트로 변환하고 reverse함수를 이용하여 순서를 뒤집는 방법 s[::-1] - 문자열 s를 [::-1]이라는 인덱스를 이용하여 호출하면 거꾸로 뒤집힌 문자열이 반환된다. 1254번 풀이 처음 생각한 풀이 주어진 문자열에 팰린드롬이 있더라도 마지막 문자가...","categories": ["algorithm"],
+        "tags": ["algorithm","string"],
+        "url": "/algorithm/acmicpc-1254/",
+        "teaser": null
+      },{
+        "title": "[백준/python]4358번 생태학 - string",
+        "excerpt":"python 포맷팅 - 소수점 자릿수 표현 python의 포맷팅 방법에는 3가지가 있다. %, format, f-string 중에서 f-string을 이용하는 방법에 대하여 알아보자. f-string python 3.6부터 사용할 수 있는 문법이다. 문자열 앞에 f를 붙이고 중괄호 안에 변수를 넣으면 된다. 을 사용해서 표현할 자릿수를 지정해준다. a,b= 1,3 print(f'{a}+{b}={a*b}') print(f'{a}/{b}={a/b:.3f}' # 소수점 3자리까지 표현 4358번...","categories": ["algorithm"],
+        "tags": ["algorithm","string"],
+        "url": "/algorithm/acmicpc-4358/",
+        "teaser": null
+      },{
+        "title": "[백준/python]5430번 AC - string",
+        "excerpt":"풀이 함수에서 R이 등장할 때마다 뒤집고 D가 등장하면 삭제하게 된다면 최악의 경우 계속해서 뒤집기만 할 수 있기 때문에 이 방법은 아니라고 생각했다. 파이썬의 reverse 메서드의 시간 복잡도는 O(N)이다. 시간 효율에 중점을 두고 문제를 풀었다. D는 언제나 배열의 첫 번째 수를 버리므로 방향을 알려주는 변수를 선언하고 R이 등장하면 -1을 곱해서 지워야...","categories": ["algorithm"],
+        "tags": ["string","algorithm"],
+        "url": "/algorithm/acmicpc-5430/",
+        "teaser": null
+      },{
+        "title": "[백준/python]냅색 문제 2차원 배열 및 1차원 배열 정리, 1106번 호텔 - knapsack",
+        "excerpt":"냅색 분류인 것을 보고 풀었기 때문에 일단 2차원 배열을 만들어야겠다는 생각을 했다. 풀긴 했지만 코드가 깔끔하지도 않고 시간도 꽤나 오래 걸렸다. 1106번 문제를 풀기 전에 1차원 배열을 이용해 평범한 배낭 문제를 풀이하는 방법을 알아보자. 일반적인 냅색 풀이(2차원/1차원 배열 이용) 평범한 배낭 문제를 기준으로 설명하겠습니다. 2차원 배열에서 dp[i][j]에 i번째 보석까지 j...","categories": ["algorithm"],
+        "tags": ["knapsack","dp","algorithm"],
+        "url": "/algorithm/acmicpc-1106/",
+        "teaser": null
+      },{
+        "title": "[백준/python] 14003번 가장 긴 증가하는 부분 수열 5 - dp",
+        "excerpt":"가장 긴 증가하는 부분 수열 문제 중 가장 마지막 문제다. 주어진 수열의 길이가 작다면 dp를 이용하여 O(n^2)의 시간 복잡도로 해결하는 것이 일반적인 방법이다. 그러나 백준 12738번, 가장 긴 증가하는 부분 수열 3과 해당 문제의 경우 수열의 길이가 1,000,000이다. dp와 함께 이분 탐색을 활용하여 시간 복잡도를 줄일 수 있다. O(n log...","categories": ["algorithm"],
+        "tags": ["binarySearch","dp","algorithm"],
+        "url": "/algorithm/acmicpc-14003/",
         "teaser": null
       }]
