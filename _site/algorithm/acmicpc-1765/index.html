@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[백준/python]1182번 부분수열의 합 - backtracking - 개구리의 개발 블로그</title>
-<meta name="description" content="N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다. 코드">
+<!-- begin _includes/seo.html --><title>[백준/python]1765번 닭싸움 팀 정하기 - union find - 개구리의 개발 블로그</title>
+<meta name="description" content="문제 링크 - https://www.acmicpc.net/problem/1765">
 
 
   <meta name="author" content="개구리">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개구리의 개발 블로그">
-<meta property="og:title" content="[백준/python]1182번 부분수열의 합 - backtracking">
-<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-1182/">
+<meta property="og:title" content="[백준/python]1765번 닭싸움 팀 정하기 - union find">
+<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-1765/">
 
 
-  <meta property="og:description" content="N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다. 코드">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-01-24T00:00:00+09:00">
+  <meta property="og:description" content="문제 링크 - https://www.acmicpc.net/problem/1765">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-02-20T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-1182/">
+
+<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-1765/">
 
 
 
@@ -275,16 +275,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[백준/python]1182번 부분수열의 합 - backtracking">
-    <meta itemprop="description" content="N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다.코드">
-    <meta itemprop="datePublished" content="2022-01-24T00:00:00+09:00">
+    <meta itemprop="headline" content="[백준/python]1765번 닭싸움 팀 정하기 - union find">
+    <meta itemprop="description" content="문제 링크 - https://www.acmicpc.net/problem/1765">
+    <meta itemprop="datePublished" content="2022-02-20T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/algorithm/acmicpc-1182/" class="u-url" itemprop="url">[백준/python]1182번 부분수열의 합 - backtracking
+            <a href="http://localhost:4000/algorithm/acmicpc-1765/" class="u-url" itemprop="url">[백준/python]1765번 닭싸움 팀 정하기 - union find
 </a>
           </h1>
           
@@ -295,7 +295,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-01-24T00:00:00+09:00">January 24, 2022</time>
+        <time datetime="2022-02-20T00:00:00+09:00">February 20, 2022</time>
       </span>
     
 
@@ -310,112 +310,66 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>N과 M 문제보다 먼저 풀었다. 백트래킹에 대한 개념을 몰라서 백트래킹 문제 중에서도 상대적으로 쉬운 문제였지만 시간이 꽤 걸렸다. 첫 풀이도 백트래킹이지만 다른 사람들의 코드를 참고하여 더 간단하게 풀 수 있음을 알게 되었다.</p>
-<h2 id="코드">코드</h2>
+        <p>문제 링크 - <a href="https://www.acmicpc.net/problem/1765">https://www.acmicpc.net/problem/1765</a></p>
 
-<p>DFS를 이용해 재귀로 풀었다.</p>
+<p>union-find 문제는 해당 카테고리의 문제라는 것을 알고 있다면 쉽게 풀 수 있다. 하지만 문제를 보고 union-find로 풀어야겠다는 아이디어를 떠올리는 것은 어려울 수 있다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+<h3 id="풀이">풀이</h3>
 
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>    
+<ul>
+  <li>팀을 만들기 위해 친구는 입력값을 받을 때 모두 union 한다.</li>
+  <li>원수인 경우 인접 리스트를 통해 서로 원수 관계인 것을 표현한다.</li>
+  <li>모든 학생을 탐색하며 원수 배열의 길이가 2 이상인 경우 해당 배열에 있는 학생들을 union해서 팀으로 만들어준다.</li>
+</ul>
 
-    <span class="k">global</span> <span class="n">ans</span>
-    
-    <span class="n">tmp</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">tmp</span><span class="o">+=</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-    
-    <span class="k">if</span> <span class="n">tmp</span><span class="o">==</span><span class="n">S</span><span class="p">:</span>
-        <span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
-    
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-            <span class="n">DFS</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-            <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-            
-    <span class="k">return</span>
-    
-<span class="n">start</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<h3 id="코드">코드</h3>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-    <span class="n">DFS</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> 
-    <span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#닭싸움 팀 정하기union find
+</span><span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="p">:</span> 
+        <span class="k">return</span> <span class="n">u</span>
+    <span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>DFS( visited, index ) : visited 배열 내부에 방문한 곳을 체크한다. 이 때 i번째 인덱스가 마지막으로 선택된 인덱스이다. 재귀함수를 통해 현재 인덱스를 선택하고 DFS를 실행하고 다시 방문 상태를 되돌려 놓는다. 루프를 통해 방문 배열의 마지막 인덱스까지 실행한다.</p>
-
-<p>재귀함수를 실행할 때마다 현재 표시된 인덱스들과 동일하게 부분수열을 뽑고 이 때 합이 S라면 전역 변수 ans에 1을 더해준다.</p>
-
-<p>DFS를 1개만 뽑은 모든 경우에서 실행한다.</p>
-
-<h2 id="백트래킹">백트래킹</h2>
-
-<p>백트래킹 개념과 다른 사람들의 풀이를 참고했다.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
-<span class="n">tmp</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">def</span> <span class="nf">DFS</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">sol</span>
-    <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">N</span> <span class="p">:</span>
+<span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">u</span><span class="o">=</span><span class="n">find</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">v</span><span class="o">=</span><span class="n">find</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">u</span><span class="o">==</span><span class="n">v</span> <span class="p">:</span>
         <span class="k">return</span>
-
-    <span class="k">if</span> <span class="n">tmp</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="n">S</span><span class="p">:</span>
-        <span class="n">sol</span> <span class="o">+=</span><span class="mi">1</span>
-
-    <span class="n">DFS</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     
-    <span class="n">tmp</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">DFS</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">v</span><span class="p">]):</span>
+        <span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">+=</span><span class="n">p</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+        <span class="n">p</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">=</span><span class="n">u</span>
     
-    <span class="n">tmp</span> <span class="o">-=</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="c1"># 백트래킹
-</span>
-<span class="n">DFS</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">+=</span><span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+        <span class="n">p</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">=</span><span class="n">v</span>
+    
+<span class="n">N</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="s">'F'</span> <span class="p">:</span>
+        <span class="n">union</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">[</span><span class="n">a</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">e</span><span class="p">[</span><span class="n">b</span><span class="p">].</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>        <span class="c1">#각 학생들의 원수 배열을 탐색하며, 원수가 2명 이상이면 그 원수끼리 모두 팀으로 만들기 
+</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="n">union</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+    
+<span class="n">sol</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">sol</span><span class="o">+=</span><span class="mi">1</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </code></pre></div></div>
-
-<p>처음에 푼 방식과 다르게 방문표시를 기준으로 DFS를 실행하고 다시 방문표시를 돌리지 않고 아예 부분 수열의 합을 기준으로 생각한다.</p>
-
-<p>현재 인덱스를 선택한 경우 현재까지의 부분합에 현재 인덱스에 해당되는 수열 값을 더하고 DFS를 실행한 뒤 처음 상태로 되돌려 준다.</p>
-
-<p>현재 인덱스를 선택하지 않은 경우 인덱스만 +1을 하고 DFS를 실행한다.</p>
-
-<h3 id="ex-1234-에서-합-6인-부분수열-찾기-1-index">Ex) [1,2,3,4] 에서 합 6인 부분수열 찾기 (1-index)</h3>
-
-<p>tmp=0, DFS(1) 실행1</p>
-
-<p>tmp=0, DFS(2) 실행2</p>
-
-<p>tmp=1, DFS(2) 실행</p>
-
-<p>tmp=0, DFS(3) 실행3</p>
-
-<p>tmp=2, DFS(3) 실행14 →</p>
-
-<p>tmp2, DFS(4) 실행 15 → tmp2, DFS(5) 실행16 return5(실행17) / tmp6, DFS(5) 실행18 return6(실행19)</p>
-
-<p>tmp5, DFS(4) 실행 20 → …</p>
-
-<p>tmp=0, DFS(4) 실행4,</p>
-
-<p>tmp=3, DFS(4) 실행9 →</p>
-
-<p>tmp=3, DFS(5) 실행10, return3(실행 11) / tmp=7, DFS(5) 실행12, return4(실행13)</p>
-
-<p>tmp=0, DFS(5) 실행5 → return1(실행6)</p>
-
-<p>tmp=4, DFS(5) 실행7 → return2(실행8)</p>
-
-<p>네..이런식으로 재귀를 타고 올라갈 수 있다. 이렇게 푸는 방법을 혼자 생각하려면 아마 하루는 넘게 걸렸을 것 같다.</p>
 
         
       </section>
@@ -434,11 +388,7 @@
     
       <a href="/tags/#algorithm" class="page__taxonomy-item p-category" rel="tag">algorithm</a><span class="sep">, </span>
     
-      <a href="/tags/#backtracking" class="page__taxonomy-item p-category" rel="tag">backtracking</a><span class="sep">, </span>
-    
-      <a href="/tags/#dfs" class="page__taxonomy-item p-category" rel="tag">dfs</a><span class="sep">, </span>
-    
-      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+      <a href="/tags/#unionfind" class="page__taxonomy-item p-category" rel="tag">unionfind</a>
     
     </span>
   </p>
@@ -463,7 +413,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-24T00:00:00+09:00">January 24, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-02-20T00:00:00+09:00">February 20, 2022</time></p>
 
       </footer>
 
@@ -472,11 +422,11 @@
       
   <nav class="pagination">
     
-      <a href="/algorithm/acmicpc-15732/" class="pagination--pager" title="[백준/python]15732번 도토리 숨기기 - binary search
+      <a href="/algorithm/acmicpc-14003/" class="pagination--pager" title="[백준/python] 14003번 가장 긴 증가하는 부분 수열 5 - dp
 ">이전</a>
     
     
-      <a href="/algorithm/acmicpc-15649/" class="pagination--pager" title="[백준/python]15649번 N과 M (1), 15650번 N과 M(2) - backtracking
+      <a href="/algorithm/acmicpc-10775/" class="pagination--pager" title="[백준/python]10775번 공항 - union find, greedy
 ">다음</a>
     
   </nav>

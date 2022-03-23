@@ -1,0 +1,769 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[백준/python]21757번 나누기 - prefix sum, dp - 개구리의 개발 블로그</title>
+<meta name="description" content="누적합과 dp를 활용하여 풀어야 했는데 dp 점화식을 세우는 것이 생각보다 쉽게 떠오르지 않아서 당황했다. 현재 풀이보다 dp부분을 좀 더 깔끔한 코드로 작성할 수 있을 것 같다.">
+
+
+  <meta name="author" content="개구리">
+  
+  <meta property="article:author" content="개구리">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개구리의 개발 블로그">
+<meta property="og:title" content="[백준/python]21757번 나누기 - prefix sum, dp">
+<meta property="og:url" content="http://localhost:4000/algorithm/acmicpc-21757/">
+
+
+  <meta property="og:description" content="누적합과 dp를 활용하여 풀어야 했는데 dp 점화식을 세우는 것이 생각보다 쉽게 떠오르지 않아서 당황했다. 현재 풀이보다 dp부분을 좀 더 깔끔한 코드로 작성할 수 있을 것 같다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-03-20T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/algorithm/acmicpc-21757/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "개구리",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개구리의 개발 블로그 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon_package_v0.16/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_package_v0.16/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_package_v0.16/favicon-16x16.png">
+<link rel="manifest" href="/favicon_package_v0.16/site.webmanifest">
+<link rel="mask-icon" href="/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개구리의 개발 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/avatar.jpg" alt="개구리" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">개구리</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>우물 안 개구리</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailtog:gudals113@email.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/gudals113" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/dogoyster2/" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[백준/python]21757번 나누기 - prefix sum, dp">
+    <meta itemprop="description" content="누적합과 dp를 활용하여 풀어야 했는데 dp 점화식을 세우는 것이 생각보다 쉽게 떠오르지 않아서 당황했다. 현재 풀이보다 dp부분을 좀 더 깔끔한 코드로 작성할 수 있을 것 같다.">
+    <meta itemprop="datePublished" content="2022-03-20T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/algorithm/acmicpc-21757/" class="u-url" itemprop="url">[백준/python]21757번 나누기 - prefix sum, dp
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-20T00:00:00+09:00">March 20, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>누적합과 dp를 활용하여 풀어야 했는데 dp 점화식을 세우는 것이 생각보다 쉽게 떠오르지 않아서 당황했다. 현재 풀이보다 dp부분을 좀 더 깔끔한 코드로 작성할 수 있을 것 같다.</p>
+
+<p>처음 시도할 때는 구간합 배열에서 크기가 같은 구간이 되도록 나누어주는 divide 함수를 구현하여 풀고자 했다.</p>
+
+<p>즉, 구간합 배열을 2등분하고 다시 각각의 쪼개진 구간을 반으로 나누어 총 개수를 세고자 시도했지만 당연하게도 시간초과가 발생했다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">A</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">before</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">prefix</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">before</span><span class="p">:</span>
+            <span class="n">idx</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">idx</span>
+
+<span class="k">def</span> <span class="nf">getPrefix</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="c1">#O(N)
+</span>    <span class="n">prefix</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))]</span>
+    <span class="n">prefix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+        <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>    
+
+    <span class="k">return</span> <span class="n">prefix</span>
+
+<span class="n">prefix1</span> <span class="o">=</span> <span class="n">getPrefix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">idx1</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="n">prefix1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span>
+
+<span class="n">sol</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx1</span><span class="p">:</span>  <span class="c1">#O(N)
+</span>    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">tmp1</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="n">prefix1</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">tmp2</span> <span class="o">=</span> <span class="n">divide</span><span class="p">(</span><span class="n">prefix1</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">prefix1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">sol</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp1</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">tmp2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="풀이">풀이</h3>
+
+<p>처음부터 구간합을 4등분하여 풀어야한다. 이 때 전체 배열의 합이 4의 배수인 경우와 4의 배수가 아닌 경우가 있으므로 각각 경우를 나누어 생각한다.</p>
+
+<p><strong>우선 주어진 수열의 구간합 배열을 계산한다.</strong></p>
+
+<ol>
+  <li>전체 배열의 합이 4의 배수가 아닌 경우
+    <ul>
+      <li>임의의 구간 a,b,c,d가 있을 때 a+b+c+d가 prefix[-1]에 저장된다. 만약 임의의 구간 a,b,c,d의 합이 같다면 prefix[-1]의 값은 sum(a)*4 이므로 4의 배수인 경우에만 문제를 해결할 수 있다.</li>
+      <li>즉 불가능한 경우이므로 0을 출력한다.</li>
+    </ul>
+  </li>
+  <li>전체 배열의 합이 0인 경우
+    <ul>
+      <li>a, b, c, 0, d, 0, e, 0, f, 0 와 같은 구간합 배열을 생각해보자. 가능한 경우는 0을 기준으로 4등분 된 1가지 밖에 없다.</li>
+      <li>a, b, 0, c, 0, d, 0, e, 0, f, 0 에서는 총 4가지 경우가 가능하다.</li>
+      <li>즉 0의 개수가 tmp개라면 조합을 이용하여 C(tmp-1,3)라는 답을 쉽게 구할 수 있다.</li>
+    </ul>
+  </li>
+  <li>전체 배열의 합이 4의 배수인 경우
+    <ul>
+      <li>전체 배열의 합이 12라고 하자. 이 때 구간합을 4등분하면 모든 구간합의 크기는 3일 것이다. 즉 구간합 배열 자체에서는 첫번째 구간의 값은 3, 두번째 값은 6, 세번째 값은 9, 마지막값은 12이다.</li>
+      <li>즉 구간합 배열에서 3,6,9,12가 순서대로 등장하는 경우가 4등분이 가능한 경우이다.</li>
+    </ul>
+
+    <p><strong>순서대로 등장하는 조합을 모두 세기 위해 DP를 활용해서 풀면 된다.</strong></p>
+
+    <ul>
+      <li>구간합 배열을 처음부터 끝까지 탐색하며 해당 인덱스’까지’ ‘가능한’ 3,6,9,12의 개수를 갱신하기 위해 2차원 배열을 사용한다. dp[i]=[0,0,0,0]</li>
+      <li>3은 가장 첫번째 수이므로 3이 등장하면 이전 인덱스의 3의 개수에 +1을 해준다. dp[i][0] = dp[i-1][0]+1</li>
+      <li>6이 등장하면 이전 인덱스까지 등장한 3에 6을 그대로 붙이면 가능한 순서이다. 여기에 이전 인덱스까지 가능했던 3-6 순서의 조합의 개수를 더해주면 된다. dp[i][1] = dp[i-1][0] + dp[i-1][1]</li>
+      <li>9가 등장했을 때는 마찬가지로 dp[i][2] = dp[i-1][1] + dp[i-1][2]</li>
+      <li>구간합 배열에서 마지막 인덱스가 아닌 중간 12가 등장하면 4등분 된 경우가 아니다. <strong>즉 12가 중간에 등장한 경우는 계산할 필요가 없다.</strong></li>
+      <li>모든 구간합 배열을 탐색한 후 마지막 인덱스에서 9의 개수를 통해 가능한 경우의 수(3-6-9-12)를 모두 계산할 수 있다.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 나누기 prefix Sum
+</span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">A</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">getPrefix</span><span class="p">(</span><span class="n">A</span><span class="p">):</span> <span class="c1">#O(N)
+</span>    <span class="n">prefix</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))]</span>
+    <span class="n">prefix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+        <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>    
+    <span class="k">return</span> <span class="n">prefix</span>
+
+<span class="n">prefix1</span> <span class="o">=</span> <span class="n">getPrefix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">prefix1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">prefix1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+    <span class="n">tmp</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">prefix1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmp</span><span class="o">+=</span><span class="mi">1</span>
+    
+    <span class="n">sol</span> <span class="o">=</span> <span class="p">(</span><span class="n">tmp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tmp</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">tmp</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">//</span><span class="mi">6</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+    
+<span class="k">else</span><span class="p">:</span>   
+    <span class="n">div</span> <span class="o">=</span> <span class="n">prefix1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">//</span><span class="mi">4</span>
+    
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">prefix1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">div</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+            
+            
+        <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="n">div</span><span class="o">*</span><span class="mi">2</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            
+        <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="n">div</span><span class="o">*</span><span class="mi">3</span><span class="p">:</span>
+        
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            
+            
+        <span class="c1"># elif n == div*4:  # 이것 때문에 틀렸다!
+</span>        <span class="c1">#     dp[i][0] = dp[i-1][0]
+</span>        <span class="c1">#     dp[i][1] = dp[i-1][1]
+</span>        <span class="c1">#     dp[i][2] = dp[i-2][2]
+</span>            
+        <span class="c1">#     dp[i][3] = dp[i-1][3]+dp[i-1][2]
+</span>            
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  
+    <span class="k">print</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#algorithm" class="page__taxonomy-item p-category" rel="tag">algorithm</a><span class="sep">, </span>
+    
+      <a href="/tags/#dp" class="page__taxonomy-item p-category" rel="tag">dp</a><span class="sep">, </span>
+    
+      <a href="/tags/#prefixsum" class="page__taxonomy-item p-category" rel="tag">prefixsum</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#algorithm" class="page__taxonomy-item p-category" rel="tag">algorithm</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-03-20T00:00:00+09:00">March 20, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/algorithm/acmicpc-3020/" class="pagination--pager" title="[백준/python]3020 개똥벌레 - prefix sum
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-3020/" rel="permalink">[백준/python]3020 개똥벌레 - prefix sum
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-13T00:00:00+09:00">March 13, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">석순과 종유석의 길이가 주어지면 석순과 종유석이 가장 적게 등장하는 구간을 찾는다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-2629/" rel="permalink">[백준/python]2629번 양팔저울 - knapsack
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-10T00:00:00+09:00">March 10, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">풀이
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-2473/" rel="permalink">[백준/python]2473번 세 용액 - two pointer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-03-02T00:00:00+09:00">March 2, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">다양한 방법으로 풀 수 있다. 2470번 두 용액 문제의 풀이를 활용했다. 다른 테크닉 없이 모든 용액을 하나씩 고정해두고 해당 용액 다음으로 등장하는 용액들만 사용하여 투 포인터를 사용해서 풀면 된다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/acmicpc-1092/" rel="permalink">[백준/python]1092번 배 - greedy
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-21T00:00:00+09:00">February 21, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">그리디 알고리즘은 간단하다고 생각하고 최근에 많이 풀지 않았는데 까다로운 문제가 많았다. 처음에는 배와 크레인의 무게를 오름차순으로 정렬하여 그리디하게 할당했는데 반례가 있었다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/gudals113" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 개구리. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'gudals113/gitpages-comments');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', 'comment')
+    script.setAttribute('theme', 'gruvbox-dark');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+
+  </body>
+</html>

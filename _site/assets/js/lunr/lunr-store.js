@@ -196,4 +196,46 @@ var store = [{
         "tags": ["binarySearch","dp","algorithm"],
         "url": "/algorithm/acmicpc-14003/",
         "teaser": null
+      },{
+        "title": "[백준/python]1765번 닭싸움 팀 정하기 - union find",
+        "excerpt":"문제 링크 - https://www.acmicpc.net/problem/1765 union-find 문제는 해당 카테고리의 문제라는 것을 알고 있다면 쉽게 풀 수 있다. 하지만 문제를 보고 union-find로 풀어야겠다는 아이디어를 떠올리는 것은 어려울 수 있다. 풀이 팀을 만들기 위해 친구는 입력값을 받을 때 모두 union 한다. 원수인 경우 인접 리스트를 통해 서로 원수 관계인 것을 표현한다. 모든 학생을...","categories": ["algorithm"],
+        "tags": ["unionfind","algorithm"],
+        "url": "/algorithm/acmicpc-1765/",
+        "teaser": null
+      },{
+        "title": "[백준/python]10775번 공항 - union find, greedy",
+        "excerpt":"문제 링크 - https://www.acmicpc.net/problem/10775 한 번에 푼 문제는 아니지만 단계적으로 잘 풀어서 기분이 좋았다. 유니온 파인드를 이용해서 풀어야 하는 문제다. 처음에는 그리디하게 가능한 가장 번호가 큰 공항에 비행기를 배치했다. 새로운 비행기에 할당된 공항이 중복되면 기존에 있던 비행기는 왼쪽으로 한 칸씩 밀어서 배치가 가능하다. 이를 이중 반복문을 통해 구현했다. 코드 (greedy,...","categories": ["algorithm"],
+        "tags": ["unionfind","greedy","algorithm"],
+        "url": "/algorithm/acmicpc-10775/",
+        "teaser": null
+      },{
+        "title": "[백준/python]1092번 배 - greedy",
+        "excerpt":"그리디 알고리즘은 간단하다고 생각하고 최근에 많이 풀지 않았는데 까다로운 문제가 많았다. 처음에는 배와 크레인의 무게를 오름차순으로 정렬하여 그리디하게 할당했는데 반례가 있었다. 내림차순으로 정렬해야겠다는 구상을 했지만 코드로 구현하는 것도 쉽지는 않았다. 구현 박스 1개를 배치할 때 count를 1 늘려준다. count가 박스의 개수와 같을 때 전체 루프를 종료하고 답을 출력한다. 가장 무거운...","categories": ["algorithm"],
+        "tags": ["greedy","algorithm"],
+        "url": "/algorithm/acmicpc-1092/",
+        "teaser": null
+      },{
+        "title": "[백준/python]2473번 세 용액 - two pointer",
+        "excerpt":"다양한 방법으로 풀 수 있다. 2470번 두 용액 문제의 풀이를 활용했다. 다른 테크닉 없이 모든 용액을 하나씩 고정해두고 해당 용액 다음으로 등장하는 용액들만 사용하여 투 포인터를 사용해서 풀면 된다. 풀이 우선 주어진 A 리스트를 오름차순으로 정렬한다. 투 포인터를 처음과 끝에서 시작하여 중간에서 만나면 탐색을 종료하는 방식을 사용한다. 이를 통해 0보다...","categories": ["algorithm"],
+        "tags": ["twopointer","algorithm"],
+        "url": "/algorithm/acmicpc-2473/",
+        "teaser": null
+      },{
+        "title": "[백준/python]2629번 양팔저울 - knapsack",
+        "excerpt":"풀이 냅색을 1차원 배열로 풀 때 같은 종류의 보석을 2번 이상 사용하지 않도록 주의해야 한다. 해당 문제도 냅색으로 접근하게 되면 dp를 갱신하며 같은 추를 2번 이상 사용하지 않도록 알고리즘을 설계해야 한다. 이를 위해 해당 추를 사용하여 무게를 갱신한 경우 dp에 dp의 인덱스 크기와 동일한 무게를 확인할 수 있는 지 저장함과...","categories": ["algorithm"],
+        "tags": ["knapsack","algorithm"],
+        "url": "/algorithm/acmicpc-2629/",
+        "teaser": null
+      },{
+        "title": "[백준/python]3020 개똥벌레 - prefix sum",
+        "excerpt":"석순과 종유석의 길이가 주어지면 석순과 종유석이 가장 적게 등장하는 구간을 찾는다. 풀이 누적합 문제다. 석순과 종유석이 번갈아가며 주어진다는 점에서 힌트를 얻어서 석순과 종유석을 분리했다. 가장 처음 등장하는 원소는 석순이므로 down 배열에 0번째 원소부터 1개씩 건너 뛰며 저장한다. up 배열에는 1번째 원소부터 1개씩 건너 뛰며 저장한다. prefix배열에서 각 인덱스의 크기는 높이를...","categories": ["algorithm"],
+        "tags": ["prefixsum","algorithm"],
+        "url": "/algorithm/acmicpc-3020/",
+        "teaser": null
+      },{
+        "title": "[백준/python]21757번 나누기 - prefix sum, dp",
+        "excerpt":"누적합과 dp를 활용하여 풀어야 했는데 dp 점화식을 세우는 것이 생각보다 쉽게 떠오르지 않아서 당황했다. 현재 풀이보다 dp부분을 좀 더 깔끔한 코드로 작성할 수 있을 것 같다. 처음 시도할 때는 구간합 배열에서 크기가 같은 구간이 되도록 나누어주는 divide 함수를 구현하여 풀고자 했다. 즉, 구간합 배열을 2등분하고 다시 각각의 쪼개진 구간을 반으로...","categories": ["algorithm"],
+        "tags": ["prefixsum","dp","algorithm"],
+        "url": "/algorithm/acmicpc-21757/",
+        "teaser": null
       }]
