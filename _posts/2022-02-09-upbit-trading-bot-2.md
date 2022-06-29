@@ -5,6 +5,9 @@ categories:
 tags:
 - python
 - upbit
+sitemap:
+    changefreq : daily
+    priority : 1.0
 ---
 
 # 자동매매 실행하기

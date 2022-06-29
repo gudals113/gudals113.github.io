@@ -5,6 +5,9 @@ categories:
 tags:
 - upbit
 - python
+sitemap:
+    changefreq : daily
+    priority : 1.0
 ---
 
 지난 글에서는 Upbit API 공식 문서에서 잔고와 마켓에 대한 정보를 불러오는 법을 알아봤다. 이번 글에서 부터는 python 라이브러리인 pyupbit를 통해 더욱 쉽고 간편하게 다양한 정보와 자동 매매를 위한 코드를 작성해보자. 

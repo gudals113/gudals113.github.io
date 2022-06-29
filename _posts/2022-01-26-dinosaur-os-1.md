@@ -8,6 +8,9 @@ categories:
 - cs
 toc: true
 toc_sticky: true
+sitemap:
+    changefreq : daily
+    priority : 1.0
 ---
 
 # Introduction

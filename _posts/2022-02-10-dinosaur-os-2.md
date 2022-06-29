@@ -8,6 +8,9 @@ categories:
 - cs
 toc: true
 toc_sticky: true
+sitemap:
+    changefreq : daily
+    priority : 1.0
 ---
 
 > 이번 글부터는 번역이 잘 안되는 부분만 참고하기 위해 영어로 작성하겠습니다.

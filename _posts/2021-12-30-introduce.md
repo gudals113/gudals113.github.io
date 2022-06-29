@@ -8,6 +8,9 @@ tags:
 # toc: true
 # toc_sticky: true
 date: '2021-12-30'
+sitemap:
+    changefreq : daily
+    priority : 1.0
 ---
 
 안녕하세요.  
