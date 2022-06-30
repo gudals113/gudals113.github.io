@@ -1,6 +1,6 @@
 ---
 title: 안녕하세요 개구리입니다.
-# excerpt: 
+excerpt: 개발 블로그 시작했습니다.
 categories:
 - life
 tags:
