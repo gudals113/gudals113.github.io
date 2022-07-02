@@ -4,4 +4,5 @@ permalink: /about/
 layout : single
 ---
 
-알고리즘, CS 공부 및 백엔드 개발 일지
+알고리즘, CS 공부  
+백엔드 개발 일지
