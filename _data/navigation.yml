@@ -7,5 +7,13 @@ main:
     url: /categories/
   - title: "Tag"
     url: /tags/
+
+forSidebar:
+  - title: "Algorithms"
+    url: /categories/#algorithm
+  - title: "Dev"
+    url: /categories/#dev
+  - title: "CS"
+    url: /categories/#cs
   # - title: "Sitemap"
   #   url: /sitemap/
